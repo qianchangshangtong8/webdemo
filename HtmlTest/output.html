@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>output</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <p>使用output元素的简易计算器</p>
+    <form onsubmit="return false">
+        <input  id="num_a" />+
+        <input id="nmu_b" />=
+        <output id="result" onforminput="resCalc()"></output>
+    </form>
+    <script type="text/javascript">
+    function resCalc() {
+        numA = document.getElementById("num_a").value;
+        numB = document.getElementById("num_b").value;
+        document.getElementById("result").value = Number(numA) + Number(numB);
+    }
+    </script>
+</body>
+
+</html>

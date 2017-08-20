@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        background-color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <p class="muted">This content is muted</p>
+    <p class="text-warning">This content carries a warning class</p>
+    <p class="text-error">This content carries an error class</p>
+    <p class="text-info">This content carries an info class</p>
+    <p class="text-success">This content carries a success class</p>
+    <p>This content has <em>emphasis</em>, and can be <strong>bold</strong></p>
+    <abbr title="Real Simple Syndication">RSS</abbr>
+    <!--     引用，设置样式“右对齐”
+ -->
+    <blockquote class="pull-right">
+        <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on. And it shows through in the templating language I'm developing, so everyone who uses it will find it's "just there" and works。</p>
+        <!--         small 来源  cite 人名
+ --><small>Developer of RSS, <cite title="Source Title">Dave Winer</cite>
+</small>
+    </blockquote>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-md-push-3">
+                <h1 class="page-header">主题</h1>
+                <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on. And it shows through in the templating language I'm developing, so everyone who uses it will find it's "just there" and works, any time you want to do a Bootstrap technique. Nothing to do,no libraries to include. It's as if it were part of the hardware. Same approach that Apple took with the Mac OS in 1984.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>区块一</h3>
+                        <!-- 显示与隐藏 -->
+                        <p class="visible-xs alert alert-info">我们有苹果和安卓的app下载</p>
+                        <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>区块二</h3>
+                        <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>区块三</h3>
+                        <p class="alert alert-info">That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on.</p>
+                    </div>
+                    <!--                     修复元素浮动问题
+ -->
+                    <div class="clearfix"></div>
+                    <!-- 或者把区块四五放在一个div.row里面 -->
+                    <div class="col-md-6">
+                        <h3>区块四</h3>
+                        <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>区块五</h3>
+                        <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on.</p>
+                    </div>
+                </div>
+            </div>
+            <!--             小屏幕隐藏侧栏
+ -->
+            <div class=" col-md-3 col-md-pull-9 hidden-sm">
+                <h1 class="page-header">侧栏</h1>
+                <p>That this is needed, desperately needed, is indicated by the incredible uptake of Bootstrap. I use it in all the server software I'm working on. And it shows through in the templating language I'm developing, so everyone who uses it will find it's "just there" and works, any time you want to do a Bootstrap technique. Nothing to do,no libraries to include. It's as if it were part of the hardware. Same approach that Apple took with the Mac OS in 1984.</p>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                <input type="search" name="" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                
+                <input type="text" name="" class="form-control">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

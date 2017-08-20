@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+   <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        background-color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    papers = $("#paper1");
+    var paperss = $("#avt1"),
+        paperp = $("#avt2"),
+        papere = $("#avt3");
+
+    paperss.draggable({
+        helper: "clone(true)",
+        cursor: 'move'
+    });
+    papers.droppable({
+        accept: '#avt1',
+        hoverClass: 'drophover',
+        drop: function(event, ui) {
+            drawSvg1(event.clientX, event.clientY); //firefox不支持event.clientX的直接使用
+        }
+    });
+    paperp.draggable({
+        helper: "clone(true)",
+        cursor: 'move'
+    });
+    papers.droppable({
+        accept: '#avt2',
+        hoverClass: 'drophover',
+        drop: function(event, ui) {
+            drawSvg2(event.clientX, event.clientY); //firefox不支持event.clientX的直接使用
+        }
+    });
+    papere.draggable({
+        helper: "clone(true)",
+        cursor: 'move'
+    });
+    papers.droppable({
+        accept: '#avt3',
+        drop: function(event, ui) {
+            drawSvg3(event.clientX, event.clientY); //firefox不支持event.clientX的直接使用
+        }
+    });
+
+    function drawSvg1(x, y) {
+        var hasStart = true,
+            e = window.event || e;
+        for (var i in paper.nodes) {
+            var node = paper.nodes[i];
+            if (node.options.dataType == "0") {
+                hasStart = false;
+                break;
+            }
+        }
+        if (hasStart) {
+            var data = {
+                dataType: "0",
+                type: "circle",
+                label: {
+                    text: "开始",
+                    fill: "#000",
+                    "font-size": 16
+                },
+                node: {
+                    width: 50,
+                    height: 50,
+                    x: e.offsetX,
+                    y: e.offsetY,
+                    fill: "#9AFF9A"
+                }
+            };
+            var node = paper.addNode(data);
+            node.attr({
+                cursor: 'pointer'
+            });
+        } else {
+            alert("只能有一个开始");
+        }
+    }
+
+    function drawSvg2(x, y) {
+        //绘制矩形
+        var e = window.event || e;
+        var json = {
+            dataType: "1",
+            type: "rect",
+            label: {
+                text: "过程",
+                fill: "#000",
+                "font-size": 16
+            },
+            node: {
+                width: 80,
+                height: 50,
+                x: e.offsetX,
+                y: e.offsetY,
+                fill: "#B2DFEE",
+                radius: 10
+            }
+        };
+        var tool = paper.addNode(json);
+        tool.attr({
+            cursor: 'pointer'
+        });
+    }
+
+    function drawSvg3(x, y) {
+        //绘制矩形
+        var e = window.event || e;
+        var json = {
+            dataType: "2",
+            type: "circle",
+            label: {
+                text: "结束",
+                fill: "#000",
+                "font-size": 16
+            },
+            node: {
+                width: 50,
+                height: 50,
+                x: e.offsetX,
+                y: e.offsetY,
+                fill: "#F08080"
+            }
+        };
+        var tool = paper.addNode(json);
+        tool.attr({
+            cursor: 'pointer'
+        });
+    }
+    </script>
+</body>
+
+</html>

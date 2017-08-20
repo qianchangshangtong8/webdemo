@@ -1,0 +1,142 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* 最外层格式 */
+
+#header {
+    height: 105px;
+    position: relative;
+}
+
+#search{
+height: 20px;
+width: 100px;
+position: absolute;
+left: 200px;
+top: 25px;
+}
+#search .focus{
+     border: 1px solid #00A5FF;
+}
+
+
+
+
+
+/* 皮肤切换 */
+
+#skin{
+    float: right;
+    width: 120px;
+    padding: 4px;
+    margin: 10px;
+}
+
+
+/* 皮肤切换内部 */
+
+#skin li{
+    display: block;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    margin-right: 4px;
+    float: left;
+    background-image: url('../images/theme.gif');
+    text-indent: -9999px;
+}
+#skin_0{
+    background-position: 0px 0px;
+}
+#skin_1{
+    background-position: 15px 0px;
+}
+#skin_2{
+    background-position: 35px 0px;
+}
+#skin_3{
+    background-position: 55px 0px;
+}
+#skin_4{
+    background-position: 75px 0px;
+}
+#skin_5{
+    background-position: 95px 0px;
+}
+#skin_0.selected{
+    background-position: 0px 15px;
+}
+#skin_1.selected{
+    background-position: 15px 15px;
+}
+#skin_2.selected{
+    background-position: 35px 15px;
+}
+#skin_3.selected{
+    background-position: 55px 15px;
+}
+#skin_4.selected{
+    background-position: 75px 15px;
+}
+#skin_5.selected{
+    background-position: 95px 15px;
+}
+
+#imgShow{
+    height: 322px;
+    width: 550px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+
+
+}
+#imgShow img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#imgShow div{
+    overflow: hidden;
+    float: left;
+    bottom: 0;
+    position: absolute;
+}
+#imgShow div a {
+    padding: 5px 15px;
+    width: 79px;
+    text-align: center;
+    background-color: #444444;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 32px;
+    float: left;
+    margin-right: 1px;
+}
+#imgShow div a.light{
+    color: #FFFFFF;
+}
+#imgShow div  a em{
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    width: 79px;
+}
+#tooltip{
+    position: absolute;
+    border: 1px solid #333;
+    background: #f7f5d1;
+    padding: 1px;
+    color: #333;
+    display: none;
+}

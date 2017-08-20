@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+// 	var person = {};
+// Object.defineProperty(person, "name", {
+// configurable: false,
+// value: "Nicholas"
+// });
+// alert(person.name); //"Nicholas"
+// delete person.name;
+// alert(person.name); //"Nicholas"
+// 
+	// function Person(name,age,job){
+	// 	this.name=name;
+	// 	this.age=age;
+	// 	this.job=job;
+	// 	this.sayName=sayName;
+
+	// }
+	// function sayName(){
+	// 	alert(this.name);
+	// }
+	// var person1 =new Person("Nicholas", 29, "Software Engineer");
+ //    var person2 =new Person("Greg", 27, "Doctor");
+ //    
+ //    
+ //    
+ //    
+	// function Person(){}
+	// Person.prototype.name="xie";
+	// Person.prototype.age=20;
+	// Person.prototype.job="engineer";
+	// Person.prototype.sayName=function(){
+	// 	alert(this.name);
+	// };
+	// var person1=new Person();
+	// person1.name="shan";
+	// var person2=new Person();
+	// alert(person1.name);
+	// alert(person2.name);
+	// alert(person1.hasOwnProperty("name"));
+	// alert(person2.hasOwnProperty("name"));
+	// delete person1.name;
+	// alert(person1.name);
+	// alert(person1.hasOwnProperty("name"));
+	// 
+	
+
+
+	// function com(object,name){
+	// 	return !object.hasOwnProperty(name) && (name in object);
+	// }
+	// function Person(){}
+	// Person.prototype.name="xie";
+	// Person.prototype.age=20;
+	// Person.prototype.job="engineer";
+	// Person.prototype.sayName=function(){
+	// 	alert(this.name);
+	// };
+	// // var person1=new Person();
+	// // person1.name="shan";
+	// // var person2=new Person();
+	// // alert(com(person1,"name"));
+	// // alert(com(person2,"name"));
+	// var keys = Object.keys(Person.prototype);
+	// alert(keys); //"name,age,job,sayName"
+	// var p1 = new Person();
+	// p1.name = "Rob";
+	// p1.age = 31;
+	// var p1keys = Object.getOwnPropertyNames(p1);
+	// alert(p1keys); //"name,age"
+
+//工厂模式
+// function person(name,age,job){
+// 	var o=new Object();
+// 	o.name=name;
+// 	o.age=age;
+// 	o.job=job;
+// 	o.sayName=function(){
+// 		alert(this.name);
+// 	}
+// 	return o;
+// }
+// var person1=person("xie",20,"software engineer");
+// var person2=person("shan",25,"engineer");
+// person1.sayName();
+// person2.sayName();
+
+
+//构造函数模式
+// function Person(name,age,job){
+// 	this.name=name;
+// 	this.age=age;
+// 	this.job=job;
+// 	this.sayName=function(){
+// 		alert(this.name);
+// 	};
+// }
+// var person1=new Person("xie",20,"engineer");
+// var person2=new Person("shan",20,"engineer");
+// person1.sayName();
+// person2.sayName();
+
+
+//原型模型
+function Person(){}
+Person.prototype.name="xiejiashan";
+Person.prototype.age=20;
+Person.prototype.job="sofoware engineer";
+Person.prototype.sayName=function(){
+	alert(this.name);
+
+};
+var person1=new Person();
+person1.sayName();//xiejiashan
+
+var person2=new Person();
+person2.sayName();//xiejianshan
+alert(person1.sayName == person2.sayName);//true
+
+
+//组合使用构造函数模式和原型模式
+	// function Person(name,age,job){
+	// 	this.name=name;
+	// 	this.age=age;
+	// 	this.job=job;
+	// 	this.friends=["xie","jia","shan"];
+	// }
+	// Person.prototype={
+	// 	constructor : Person,
+	// 	sayName:function(){
+	// 		alert(this.name);
+	// 	}
+	// }
+	// var person1=new Person("zhang",20,"manong");
+	// alert(person1.name);
+	// person1.friends.push("zhang","feng");
+	// alert(person1.friends);
+	// person1.friends.shift();
+	// alert(person1.friends);
+
+
+//动态原型模式
+	// function Person(name,age,job){
+	// 	this.name=name;
+	// 	this.age=age;
+	// 	this.job=job;
+	// 	if(typeof(this.sayName) !="function"){
+	// 		Person.prototype.sayName=function(){
+	// 			alert(this.name);
+	// 		}
+	// 	}
+	// }
+	// var friends=new Person("xie",22,"engineer");
+	// friends.sayName();
+
+//寄生构造函数模式
+	// function Person(name, age, job){
+	// var o = new Object();
+	// o.name = name;
+	// o.age = age;
+	// o.job = job;
+	// o.sayName = function(){
+	// alert("我的名字是："+this.name);
+	// 	};
+	// o.sayJob=function(){
+	// 	alert("我的工作是："+this.job);
+	// }
+	// 	return o;
+	// }
+	// var friend = new Person("Nicholas", 29, "Software Engineer");
+	// friend.sayName(); //"Nicholas"
+	// friend.sayJob();
+	</script>
+</head>
+<body>
+</body>
+</html>

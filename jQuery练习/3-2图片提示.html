@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片提示</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    ul li {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    li {
+        list-style: none;
+        display: inline;
+        float: left;
+        margin-right: 10px;
+        border: 1px solid #AAAAAA;
+    }
+    
+    #tooltip {
+        position: absolute;
+        border: 1px solid #ccc;
+        background: #333;
+        padding: 2px;
+        display: none;
+        color: #fff;
+    }
+    /*鼠标移出移入图片旋转*/
+    
+    .tip img {
+        -webkit-transition: 1s all;
+        -moz-transition: 1s all;
+        -o-transition: 1s all;
+        transition: 1s all;
+    }
+    
+    .tip:hover img {
+        -webkit-transform: rotate(720deg);
+        -moz-transform: rotate(720deg);
+        -o-transform: rotate(720deg);
+        transform: rotate(720deg);
+    }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="../img/11.jpg" class="tip" title="图片提示1"><img src="../img/11.jpg" alt="图片提示"></a>
+        </li>
+        <li>
+            <a href="../img/33.jpg" class="tip" title="图片提示2"><img src="../img/33.jpg" alt="图片提示"></a>
+        </li>
+        <li>
+            <a href="../img/44.jpg" class="tip" title="图片提示3"><img src="../img/44.jpg" alt="图片提示"></a>
+        </li>
+        <li>
+            <a href="../img/11.jpg" class="tip" title="图片提示4"><img src="../img/11.jpg" alt="图片提示"></a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+    $(function() {
+        var x = 10;
+        var y = 10;
+        $(".tip").mouseover(function(event) {
+            /* Act on the event */
+            this.myTitle = this.title;
+            this.title = "";
+            var imgTitle = this.myTitle ? "<br/>" + this.myTitle : "";
+            var tooltip = "<div id='tooltip'><img src='" + this.href + "' alt='产品预览图'/>" + imgTitle + "<\/div>"; //创建 div 元素
+            $("body").append(tooltip);
+            $("#tooltip").css({
+                "top": (event.pageY + y) + "px",
+                "left": (event.pageX + x) + "px"
+
+            }).show("fast");
+        }).mouseout(function(event) {
+            /* Act on the event */
+            this.title = this.myTitle;
+            $("#tooltip").remove();
+        }).mousemove(function(event) {
+            /* Act on the event */
+            $("#tooltip").css({
+                "top": (event.pageY + y) + "px",
+                "left": (event.pageX + x) + "px"
+            });
+        });
+    })
+    </script>
+</body>
+
+</html>

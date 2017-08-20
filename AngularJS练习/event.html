@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p ng-hide="yin">
+            名：
+            <input type="text" ng-model="firstName" ng-hide="aa">
+            <br> 姓：
+            <input type="text" ng-model="lastName" ng-hide="aa">
+            <br> 姓名：{{firstName+' '+lastName}}
+        </p>
+        <button ng-click="click()">点击是否隐藏/显示</button>
+        <button ng-click="clickk()">点击是否显示文本框</button>
+    </div>
+    <script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+    	$scope.firstName="jiashan";
+    	$scope.lastName="xie";
+    	$scope.yin=false;
+    	$scope.click=function(){
+    		$scope.yin=!$scope.yin;
+    	};
+    	$scope.aa=false;
+    	$scope.clickk=function(){
+    		$scope.aa=!$scope.aa;
+    	};
+    });
+
+
+    </script>
+</body>
+
+</html>

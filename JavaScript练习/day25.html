@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="js/demo.js">
+</head>
+
+<body>
+    <div id="myDiv"></div>
+    <script type="text/javascript">
+    /* alert(document.doctype.publicId);
+                                        alert(document.doctype.systemId);*/
+
+
+    //DOM3辅助节点比较 isSameNode()和 isEqualNode()
+
+    // var div1=document.createElement("div");
+    // div1.setAttribute("class","box");
+    // var div2=document.createElement("div");
+    // div2.setAttribute("class","box");
+    // alert(div1.isSameNode(div1));
+    // alert(div1.isEqualNode(div2));
+    // alert(div1.isSameNode(div2));
+
+    //设置样式 驼峰格式
+    // var myDiv = document.getElementById("myDiv");
+    // myDiv.style.backgroundColor = "red";
+    // myDiv.style.border = "1px solid blue";
+    // myDiv.style.width = "100px";
+    // myDiv.style.height = "100px";
+    // alert(myDiv.style.backgroundColor);
+    // alert(myDiv.style.border);
+
+    //DOM样式属性和方法cssText、item()、length
+    myDiv.style.cssText = "width: 25px; height: 100px; background-color: green";
+    alert(myDiv.style.cssText);
+    for (var i = 0, len = myDiv.style.length; i < len; i++) {
+        alert(myDiv.style[i]); //或者 myDiv.style.item(i)
+    }
+
+    // //getPropertyValue()
+    // var prop, value, i, len;
+    // for (i = 0, len = myDiv.style.length; i < len; i++) {
+    //     prop = myDiv.style[i]; //或者 myDiv.style.item(i)
+    //     value = myDiv.style.getPropertyValue(prop);
+    //     alert(prop + " : " + value);
+    // }
+
+
+    // //getPropertyCSSvalue()   不支持?抛弃了?不清楚?
+    // var prop, value, i, len;
+    // for (i = 0, len = myDiv.style.length; i < len; i++) {
+    //     prop = myDiv.style[i]; //或者 myDiv.style.item(i)
+    //     value = myDiv.style.getPropertyCSSValue(prop);
+    //     alert(prop + " : " + value.cssText + " (" + value.cssValueType + ")");
+    // }
+
+    //StyleSheet
+    var sheet = null;
+    for (var i = 0, len = document.styleSheets.length; i < len; i++) {
+        sheet = document.styleSheets[i];
+        alert(sheet.href);
+        alert(sheet.title);
+        alert(sheet.type);
+    }
+    </script>
+</body>
+
+</html>

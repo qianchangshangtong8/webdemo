@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#box{
+			width:351px;
+			height:337px;
+			margin:10px auto;
+			border:2px solid blue;
+			position:relative;
+		}
+		.res_name{
+			line-height:24px;
+			
+			text-decoration:none;
+			position:absolute;
+			top:230px;
+			left:20px;
+		}
+		#box p.description{
+			line-height:20px;
+			position:absolute;
+			top:255px;
+			left:20px;
+		}
+		.food{
+			position: absolute;
+			top:268px;
+			left:200px;
+			text-decoration:none;
+			line-height:14px;
+			font-size:12px;
+
+		}
+		.local{
+			position:absolute;
+			top:268px;
+			left:230px;
+			text-decoration:none;
+			line-height:14px;
+			font-size:12px;
+
+		}
+		#bottom_out{
+			position:absolute;
+			top:294px;
+			left:0px;
+			width:350px;
+			height:43px;
+			border-top:1px solid #F3F3F3 ;
+		}
+		#bottom{
+			height:42px;
+			width:350px;
+			border-top:1px solid white;
+			background:#FAFAFA;
+		}
+		#box #bottom_out #bottom .price1{
+			color:red;
+			font-size:14px;
+			line-height:42px;
+			margin-left:50px;
+
+		}
+		#box #bottom_out #bottom .price1 span{
+			color:gray;
+		}
+		#box #bottom_out #bottom .price_average{
+			margin-left:200px;
+		}
+
+
+	</style>
+</head>
+<body>
+<div id="box">
+	<img src="/webdemo/img/meituan.jpg" alt="美食" class="mt"/>
+	<a href="#" class="res_name">九龙半岛西餐厅</a>
+	<p class="description">自助选材，美食在口</p>
+	<a href="#" class="food">美食</a><a href="#" class="local">天河北/广州东站</a>
+	<div id="bottom_out"><div id="bottom">
+		<span class="price1">¥49<span>起</span></span><span class="price_average">人均¥53</span>
+	</div> </div>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>继承测试</title>
+<script type="text/javascript">
+
+// //组合继承：原型链继承和借用构造函数的组合
+// function SuperType(name){
+// 	this.name=name;
+// 	this.colors=["red","blue","yellow"];
+// }
+// SuperType.prototype.sayName=function(){
+// 	alert(this.name);
+// };
+// function SubType(name,age){
+// 	SuperType.call(this,name);
+// 	this.age=age;
+// }
+// SubType.prototype=new SuperType();
+// SubType.prototype.constructor=SubType;
+// SubType.prototype.sayAge=function(){
+// 	alert(this.age);
+// }
+// var person1=new SubType("xie",20);
+// person1.colors.push("green");
+// alert(person1.colors);
+// person1.sayName();
+// person1.sayAge();
+
+
+//原型链继承
+// function object(o){
+// 	function F(){}
+// 	F.prototype=o;
+// 	return new F();
+// }
+// var person={
+// 	name:"xiejiashan",
+// 	friends:["zhang","liu","yu","guan"]
+// };
+// var person1=object(person);
+// person1.name="xiexiexie";
+// person1.friends.push("zhangxiangping");
+// alert(person1.friends);
+
+// var person2=object(person);
+// person2.friends.push("linmingguan");
+// alert(person2.friends);
+
+
+function inspPrototype(subType,superType){
+	var prototype=Object.create(superType);
+	prototype.constructor=subType;
+	subType.prototype=prototype;
+}
+function SuperType(name){
+	this.name=name;
+	this.friends=["zhang","liu","yu","guan"];
+}
+SuperType.prototype.sayName=function(){
+	alert(this.name);
+};
+function SubType(name,age){
+	SuperType.call(this,name);
+	this.age=age;
+}
+inspPrototype(SubType,SuperType);
+SubType.prototype.sayAge=function(){
+	alert(this.age);
+};
+var person1=new SubType("shan",22);
+person1.friends.push("zhang");
+person1.sayAge();
+person1.sayName();
+alert(person1.friends);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//寄生组合继承
+// function insPrototype(subType,superType){
+// 	var prototype=Object.create(superType.prototype);
+// 	prototype.constructor=subType;
+// 	subType.prototype=prototype;
+// }
+// function SuperType(name){
+// 	this.name=name;
+// 	this.colors=["red","blue","green"];
+// }
+// SuperType.prototype.sayName=function(){
+// 	alert(this.name);
+// };
+// function SubType(name,age){
+// 	SuperType.call(this,name);
+// 	this.age=age;
+// }
+// insPrototype(SubType,SuperType);
+// SubType.prototype.sayAge=function(){
+// 	alert(this.age);
+// };
+// var person1=new SubType("xie",22);
+// person1.sayName();
+// person1.sayAge();
+// alert(person1.colors);
+
+
+
+// //寄生组合继承检验结果
+// function insPrototype(subType, superType){
+// 	var prototype=Object.create(superType.prototype);
+// 	prototype.constructor=subType;
+// 	subType.prototype=prototype;
+// }
+// function SuperType(name){
+// 	this.name=name;
+// 	this.friends=["xie","jia","shan"];
+// }
+// SuperType.prototype.sayName=function(){
+// 	alert(this.name);
+// };
+// function SubType(name,age){
+// 	SuperType.call(this,name);
+// 	this.age=age;
+// }
+// insPrototype(SubType,SuperType);
+// SubType.prototype.sayAge=function(){
+// 	alert(this.age);
+// };
+// var person1=new SubType("SSS",22);
+// person1.friends.push("zhang","jun","ming");
+// alert(person1.friends);
+// person1.sayName();
+// person1.sayAge();
+
+// var person2=new SubType("XXX",44);
+// alert(person2.friends);
+// person2.sayName();
+// person2.sayAge();
+
+
+
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

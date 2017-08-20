@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    var element = document.createElement("div");
+    element.className = "message";
+
+    var textNode = document.createTextNode("Hello world!");
+    element.appendChild(textNode);
+
+    var anotherTextNode = document.createTextNode("Yippee!");
+    element.appendChild(anotherTextNode);
+
+    document.body.appendChild(element);
+
+    alert(element.childNodes.length); //2
+
+    element.normalize();
+    alert(element.childNodes.length); //1
+    alert(element.firstChild.nodeValue); // "Hello world!Yippee!"
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

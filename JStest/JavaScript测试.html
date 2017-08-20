@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JavaScript测试</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+
+    <body>
+        <script type="text/javascript">
+        // var book = {
+        //     _year: 2004,
+        //     edition: 1
+        // };
+        // 在对象上定义一个新的属性
+        // Object.defineProperty(book, "year", {
+        //     get: function() {
+        //         return this._year;
+        //     },
+        //     set: function(newValue) {
+        //         if (newValue > 2004) {
+        //             this._year = newValue;
+        //             this.edition += newValue - 2004;
+        //         }
+        //     }
+        // });
+        // book.year = 2005;
+        // alert(book.edition); //2
+
+
+        // 尽管可以随时为原型添加属性和方法，并且修改能够立即在所有对象实例中反映出来，但如果是重写整个原型对象，那么情况就不一样了。我们知道，调用构造函数时会为实例添加一个指向最初原型的[[Prototype]]指针，而把原型修改为另外一个对象就等于切断了构造函数与最初原型之间的联系。
+        //  function Person() {}
+        // var friend = new Person();
+        //  Person.prototype = {
+        //      constructor: Person,
+        //      name: "Nicholas",
+        //      age: 29,
+        //      job: "Software Engineer",
+        //      sayName: function() {
+        //          alert(this.name);
+        //      }
+        //  };
+
+        //  friend.sayName(); //error
+        </script>
+        <!-- 继承、借用构造函数继承,可以传递参数-->
+        <script type="text/javascript">
+        // function SuperType(){
+        // 	this.colors=["red","blue","green"]
+        // }
+        // function SubType() {
+        // 	// body...
+        // 	SuperType.call(this);
+        // }
+        // var inst =new SubType();
+        // inst.colors.push("black");
+        // alert(inst.colors);
+
+        // var inst1=new SubType();
+        // alert(inst1.colors);
+
+
+
+        // function SuperType(name) {
+        // 	this.name=name;
+        // 	// body...
+        // }
+
+        // function SubType(){
+        // 	//继承了superType,而且还传递了参数
+        // 	SuperType.call(this,"xjs");
+        // 	//实例属性
+        // 	this.age=28;
+        // }
+        // var int1=new SubType();
+        // alert(int1.name);
+        // alert(int1.age);
+        </script>
+
+
+        <!--组合继承，原型链和借用构造函数-->
+        <script type="text/javascript">
+        // function SuperType(name) {
+        //     this.name = name;
+        //     this.color = ["red", "blue"];
+        // }
+        // SuperType.prototype.sayName = function() {
+        //     alert(this.name);
+        // };
+
+        // //继承属性
+        // function SubType(name, age) {
+        //     SuperType.call(this, name);
+        //     this.age = age;
+        // }
+        // //继承方法
+        // SubType.prototype = new SuperType();
+        // SubType.prototype.constructor = SubType;
+        // SubType.prototype.sayAge = function() {
+        //     alert(this.age);
+        // };
+
+        // var t1 = new SubType("xjs", 22);
+        // t1.color.push("black");
+        // alert(t1.color);
+        // t1.sayName();
+        // t1.sayAge();
+
+        // var instance2 = new SubType("Greg", 27);
+        // alert(instance2.color); //"red,blue,green"
+        // instance2.sayName(); //"Greg";
+        // instance2.sayAge(); //27
+        </script>
+
+        <!-- 原型式继承 object()和Object.create()方法-->
+        <script type="text/javascript">
+        function object(o){
+        	function F(){}
+        	F.prototype=o;
+        	return new F();
+        }
+        var person={
+        	name:"xjs",
+        	colors:["grey","red"]
+        };
+        //覆盖原型的同名属性
+        var p1=Object.create(person,{
+        	name:{
+        		value:"xjsxjs"
+        	}
+        });
+        p1.colors.push("black");
+ 
+
+        var p2=object(person);
+        p2.colors.push("white");
+        p2.name="jjj";
+
+        alert(person.colors+" "+p1.name);//p1.name==xjs变成p1.name=xjsxjs
+
+
+        </script>
+        <script type="text/javascript">
+        (function(){
+        	var now=new Date();
+        	if(now.getMonth()==2 && now.getDate()==5){
+        		alert("happy test!");
+        	}
+        })();
+
+
+        </script>
+    </body>
+
+</html>

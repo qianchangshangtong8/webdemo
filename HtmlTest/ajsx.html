@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+function Ajax(){
+	var xmlHttpReq=null;
+	if(window.ActiveXObject){
+		xmlHttpReq=new ActiveXObject("Microsoft.XMLHTTP");
+	}else if(window.xmlHttpRequest){
+		xmlHttpReq=new xmlHttpRequest();
+	}
+	if(xmlHttpReq !=null){
+		xmlHttpReq.open("GET","../带锋利的JQuery第二版的源码/Ch6/php/demo1-javascript/test.php",true);
+		xmlHttpReq.onreadystatechange=RequestCallBack;
+		xmlHttpReq.send(null);
+	}
+	function RequestCallBack(){
+		if(xmlHttpReq.state==4){
+			if(xmlHttpReq.status==200){
+				document.getElementById("resText").innerHTML = xmlHttpReq.responseText;
+			}
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+    <input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="resText" ></div>
+</body>
+</html>

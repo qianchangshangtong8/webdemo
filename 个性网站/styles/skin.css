@@ -1,0 +1,36 @@
+#skin_0{
+	background-position: 0px 0px;
+}
+#skin_1{
+	background-position: 15px 0px;
+}
+#skin_2{
+	background-position: 35px 0px;
+}
+#skin_3{
+	background-position: 55px 0px;
+}
+#skin_4{
+	background-position: 75px 0px;
+}
+#skin_5{
+	background-position: 95px 0px;
+}
+#skin_0.selected{
+	background-position: 0px 15px;
+}
+#skin_1.selectde{
+	background-position: 15px 15px;
+}
+#skin_2.selectde{
+	background-position: 35px 15px;
+}
+#skin_3.selectde{
+	background-position: 55px 15px;
+}
+#skin_4.selectde{
+	background-position: 75px 15px;
+}
+#skin_5.selectde{
+	background-position: 95px 15px;
+}

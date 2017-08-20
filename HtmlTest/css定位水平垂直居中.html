@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>css定位水平垂直居中</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style>
+    .parent {
+        width: 200px;
+        height: 200px;
+        display: table;
+        background-color: blue;
+    }
+
+    .child {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+
+/*定位水平垂直居中*/
+    #parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+
+    #child {
+        position: absolute;
+        left: 50%;
+        top: 50% ;
+        background-color: red;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">我是一致；</div>
+    </div>
+    <div id="parent">
+        <div id="child">劳动纠纷劳动纪律</div>
+    </div>
+</body>
+
+</html>

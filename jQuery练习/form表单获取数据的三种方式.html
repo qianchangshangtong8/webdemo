@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>form表单获取数据的方式</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate.js"></script>
+</head>
+
+<body>
+    //利用参数formData获取表单数据
+    <script type="text/javascript">
+    $(function() {
+        function validate(formData, jqForm, options) {
+            // body...
+            for (var i = 0; i < formData.length; i++) {
+                if (!formData[i].value) {
+                    alert('都是非空');
+                    return false;
+                }
+            }
+            var queryString = $.param(formData);
+            return true;
+        }
+    });
+    </script>
+    //利用参数jqForm获取表单数据
+    <script type="text/javascript">
+    $(function() {
+        function validate(formData, jqForm, options) {
+            var form = jqForm[0];
+            if (!form.name.value || !form.address.value) {
+                alert('用户名和地址非空');
+                return false;
+            }
+            var queryString = $.param(formData);
+            return true;
+        }
+
+    });
+    </script>
+    //利用fieldValue()方法获取表单数据
+    <script type="text/javascript">
+    $(function() {
+        function validate(formData, jqForm, options) {
+            var usernameValue = $('input[name=name]').fieldValue();
+            var addressValue = $('input[name=address]').fieldValue();
+            if (!usernameValue[0] || !addressValue[0]) {
+                alert('用户名、地址非空');
+                return false;
+            }
+            var queryString = $.param(formData);
+            return true;
+        }
+    });
+    </script>
+</body>
+
+</html>

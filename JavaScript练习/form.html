@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+//     function SuperType(){
+//       this.property = true;
+//     }
+//     SuperType.prototype.getSuperValue = function(){
+//       return this.property;
+//     };
+//     function SubType(){
+//       this.subproperty = false;
+//     }
+// //继承了 SuperType
+//   SubType.prototype = new SuperType();
+//   SubType.prototype.getSubValue = function (){
+//     return this.subproperty;
+//   };
+//   var instance = new SubType();
+//   alert(instance.getSuperValue()); //true
+//   alert(instance instanceof Object);
+//   alert(Object.prototype.isPrototypeOf(instance));
+//   alert(instance instanceof SuperType);
+//   alert(SuperType.prototype.isPrototypeOf(instance));
+//   alert(instance instanceof SubType);
+//   alert(SubType.prototype.isPrototypeOf(instance));
+
+
+
+// function One(){
+//   this.property=true;
+// }
+// One.prototype.getValue=function(){
+//   return this.property;
+// };
+// function Two(){
+//   this.twoproperty=false;
+// }
+
+// Two.prototype=new One();
+// Two.prototype.getTwoValue=function(){
+//   return this.twoproperty;
+// };
+// Two.prototype.getValue=function(){
+//   return false;
+// }
+// var test=new Two();
+// alert(test.getValue());
+
+//原型链问题
+//问题1
+// function One(){
+//   this.colors=["red","blue","green"];
+// }
+// function Two(){}
+// Two.prototype=new One();
+
+// var color1=new Two();
+// color1.colors.push("red");
+// alert(color1.colors);
+// var color2=new Two();
+// color2.colors.push("yellow");
+// alert(color2.colors);
+// var color3=new Two();
+// alert(color3.colors);
+
+//借用构造函数
+// function One(){
+//   this.colors=["red","blue","yellow"];
+// }
+// function Two(){
+//   One.call(this);
+// }
+// Two.prototype=new One();
+// var color1=new Two();
+// color1.colors.push("red");
+// alert(color1.colors);
+// var color2=new Two();
+// alert(color2.colors);
+
+
+//传递参数
+// function One(name){
+//   this.name=name;
+// }
+// function Two(){
+//   One.call(this,"xiejiashan");
+//   this.age=29;
+// }
+// var person1=new Two();
+// alert(person1.name);
+// alert(person1.age);
+
+
+//组合继承
+//   function One(name){
+//     this.name=name;
+//     this.colors=["red","blue","green"];
+//   }
+//   One.prototype.sayName=function(){
+//     alert(this.name);
+//   };
+//   function Two(name,age){
+//     One.call(this,name);
+//     this.age=age;
+//   }
+//   Two.prototype=new One();
+//   Two.prototype.constructor=Two;
+//   Two.prototype.sayAge=function(){
+//     alert(this.age);
+//   }
+// var person1=new Two("xiejiashan",20);
+// person1.colors.push("yellow");
+// alert(person1.colors);
+// person1.sayName();
+// person1.sayAge();
+
+//test 构造函数与原型组合继承
+// function SuperType(name){
+//   this.name=name;
+//   this.colors=["xie","jia","shan"];
+
+// }
+// SuperType.prototype.sayName=function(){
+//   alert(this.name);
+// };
+// function SubType(name,age){
+//   SuperType.call(this,name);
+//   this.age=age;
+// }
+// SubType.prototype=new SuperType();
+// SubType.prototype.constructor=SubType;
+// SubType.prototype.sayAge=function(){
+//   alert(this.age);
+// };
+// var person2=new SubType("xiejiashan",22);
+// person2.colors.push("xiexie");
+// alert(person2.colors);
+// person2.sayAge();
+// person2.sayName();
+// alert(person2 instanceof Object);
+// alert(person2 instanceof SuperType);
+// alert(person2 instanceof SubType);
+// alert(Object.prototype.isPrototypeOf(person2));
+// alert(SuperType.prototype.isPrototypeOf(person2));
+// alert(SubType.prototype.isPrototypeOf(person2));
+
+
+//原型式继承
+  function object(o){
+      function F(){}
+      F.prototype = o;
+      return new F();
+    }
+  var person={
+  name:"xiejiashan",
+  friends:["xie","jia","shan"]
+  };
+
+  var person1=object(person);
+  person1.name="zhang";
+  person1.friends.push("xxx");
+
+  var person2=object(person);
+  person2.name="liu";
+  person2.friends.push("tian");
+  alert(person.friends);
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

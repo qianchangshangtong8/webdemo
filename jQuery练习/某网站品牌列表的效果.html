@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>某网站品牌列表的效果</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <!--  <input type="button" value="设置单选下拉框选中" />
+    <input type="button" value="设置多选下拉框选中" />
+    <input type="button" value="设置单选框和多选框选中" />
+    <br/>
+    <br/>
+    <select id="single">
+        <option>选择1号</option>
+        <option>选择2号</option>
+        <option>选择3号</option>
+    </select>
+    <select id="multiple" multiple="multiple" style="height:120px;">
+        <option selected="selected">选择1号</option>
+        <option>选择2号</option>
+        <option>选择3号</option>
+        <option>选择4号</option>
+        <option selected="selected">选择5号</option>
+    </select>
+    <br/>
+    <br/>
+    <input type="checkbox" value="check1" /> 多选1
+    <input type="checkbox" value="check2" /> 多选2
+    <input type="checkbox" value="check3" /> 多选3
+    <input type="checkbox" value="check4" /> 多选4
+    <br/>
+    <input type="radio" value="radio1" /> 单选1
+    <input type="radio" value="radio2" /> 单选2
+    <input type="radio" value="radio3" /> 单选3
+    <script>
+    $(document).ready(function() {
+        $("input:eq(0)").click(function(){
+            $("#single").val("选择3号");
+            //$("#single option:eq(1)").attr("selected",true);
+        });
+
+        $("input:eq(1)").click(function() {
+            $("#multiple").val(["选择3号","选择4号"]);
+        });
+
+        $("input:eq(2)").click(function() {
+            $(":checkbox").val(["check1","check2"]);
+            $("[value=radio3]:radio").attr("checked",true);
+        });
+
+
+
+    });
+
+
+    </script> -->
+    <div class="list-Box">
+        <ul>
+            <li><a href="#">测试111</a></li>
+            <li><a href="#">测试222</a></li>
+            <li><a href="#">测试333</a></li>
+            <li><a href="#">测试444</a></li>
+            <li><a href="#">测试111</a></li>
+            <li><a href="#">测试111</a></li>
+            <li><a href="#">测试111</a></li>
+            <li><a href="#">测试111</a></li>
+        </ul>
+        <div class="showmore">
+            <a href="#"><span>显示全部品牌</span></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        var $lihide = $("ul li:gt(3):not(last)");
+        $lihide.hide();
+        var $showmore = $(".showmore>a");
+        $showmore.click(function(event) {
+            /* Act on the event */
+            if ($lihide.is(":visible")) {
+                $lihide.hide();
+                $(this).find("span").text("显示全部品牌");
+
+            } else {
+                $lihide.show();
+                $(this).find("span").text("显示精简品牌");
+            }
+            return false;
+        });
+
+    });
+    </script>
+</body>
+
+</html>

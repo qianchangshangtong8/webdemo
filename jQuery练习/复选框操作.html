@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>复选框操作</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <form id="form1" action="" method="post">
+        <div id="checkbx">
+            <input type="checkbox" name="item">华为
+            <input type="checkbox" name="item">华为
+            <input type="checkbox" name="item">华为
+            <input type="checkbox" name="item">华为
+            <input type="checkbox" name="item">华为
+            <input type="checkbox" name="item">华为
+        </div>
+        <input type="button" name="button" id="checkAll" value="全选">
+        <input type="button" name="button" id="checkNot" value="全不选">
+        <input type="button" name="button" id="checkRe" value="反选">
+        <input type="button" name="button" id="sub" value="提交">
+    </form>
+    <script type="text/javascript">
+    $(function() {
+       //全选
+        $("#checkAll").click(function() {
+            /* Act on the event */
+            $("[name=item]:checkbox").attr("checked", true);
+        });
+
+        //全不选
+        $("#checkNot").click(function() {
+            /* Act on the event */
+            $("[type=checkbox]:checkbox").attr("checked", false);
+        });
+
+        //反选
+        $("#checkRe").click(function() {
+            /* Act on the event */
+            $("[name=item]:checkbox").each(function() {
+                this.checked = !this.checked;
+            });
+        });
+
+        //提交，输出选择的项
+        $("#sub").click(function(){
+        	var str="你输入的是：\r\n";
+        	$("[name=item]:checkbox:checked").each(function() {
+        		str+=$(this).val()+"\r\n";
+        	});
+        	alert(str);
+        });
+
+    });
+    </script>
+</body>
+
+</html>

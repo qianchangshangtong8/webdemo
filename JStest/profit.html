@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript">
+	/*var gross_profit=100000
+	var net_profit
+	var profit_sharing_percent=0.100000
+	var profit_sharing=gross_profit*profit_sharing_percent
+		calculate_profit_sharing(profit_sharing)
+
+	function calculate_profit_sharing(guess){
+		net_profit=gross_profit-guess
+
+		profit_sharing=Math.ceil(net_profit*profit_sharing_percent)
+		if((net_profit+profit_sharing)!=gross_profit){
+			calculate_profit_sharing(profit_sharing)
+		}
+	}
+	alert("gross_profit"+gross_profit+"net_profit"+net_profit+"profit_sharing"+profit_sharing)
+*/
+	/*var number1 = eval(prompt("输入数1：",111))
+	var number2 = eval(prompt("输入数2: ",222))
+	var sum_result = number1 + number2
+	alert(sum_result)
+*/
+	/*var number3=prompt("输入数3：",333)
+	var number4=prompt("输入数4：",444)
+	var comparison_result=number3!=number4
+	alert(comparison_result)
+*/
+/*
+ 	var value1="1"
+ 	var value2=true
+ 	var comparison_result=value1==value2
+ 	alert(comparison_result)*/
+
+/* 	var total_points=0
+ 	var year_check=prompt("输入年份：",2000)
+ 	var check4=year_check%4==0?1:0
+ 	var check100=year_check%100==0?-1:0
+ 	var check400=year_check%400==0?1:0
+ 	total_points=check4+check100+check400
+ 	alert(total_points==1?true:false)*/
+
+ /*	var v1=true
+ 	var v2=10
+ 	var v3="testing"
+ 	var v4=false
+ 	var v5=0
+ 	var v6=""
+ 	var left_operand=eval(prompt("输入左边的数(expression):,true"))
+ 	var right_operand=eval(prompt("输入右边的数(expression):,true)"))
+ 	var logical_result=left_operand&&right_operand
+ 	alert(logical_result)*/
+
+ 	/*var greeting
+ 	var carrent_hour
+ 	carrent_hour=prompt("输入当前时间：",12)
+ 	greeting=carrent_hour<12?"good morning":"good day"
+ 	alert(greeting)
+*/
+
+	/*var current_date=new Date()
+
+	var current_hour=current_date.getHours()
+	var current_minute=current_date.getMinutes()
+	var greeting
+
+	if(current_hour<12){
+		greeting="good morning"
+	}
+	else if(current_hour<18){
+		greeting="good afternoon"
+	}
+	else {
+		greeting="good night"
+	}
+	alert("日期："+current_date+"小时："+current_hour+"分钟："+current_minute)*/
+/*
+	var simple_minded=0
+	while(simple_minded<3){
+		++simple_minded
+		alert(simple_minded)
+	}alert(simple_minded)*/
+
+/*	var counter = 0
+	var input_total = 0
+	var input_value
+
+	while(counter<3){
+		input_value=eval(prompt("输入一个合法的数：",0))
+		if(input_value==null){
+			continue
+
+	}
+	input_total+=input_value
+	counter++
+}
+alert("average is:"+input_total/3)*/
+/*
+	var address=prompt("输入地址：")
+	window.location = address
+*/
+/*
+for(var property_name in location){
+	document.write(property_name+"<br>")
+}*/
+	display_object_properties(prompt("输入对象名：",location))
+	function display_object_properties(object_string){
+		var actual_object = eval(object_string)
+		var property_message="这是"+object_string+"\n\n"
+		for (var property_name in actual_object){
+			property_message+=object_string+"."+property_name+"="+actual_object[property_name]+"\n"
+		}
+		alert(property_message)
+	}
+
+
+</script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>

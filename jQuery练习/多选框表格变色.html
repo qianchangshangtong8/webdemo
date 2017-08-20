@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>表格变色</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    table {
+        border: 1px;
+    }
+    
+    .odd {
+        background-color: #ff0000;
+    }
+    
+    .even {
+        background-color: #0000ff;
+    }
+    
+    .selected {
+        background-color: yellow;
+    }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> </th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" />
+                </td>
+                <td>张山</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" />
+                </td>
+                <td>李四</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" checked='checked' />
+                </td>
+                <td>王五</td>
+                <td>男</td>
+                <td>湖南长沙</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" />
+                </td>
+                <td>找六</td>
+                <td>男</td>
+                <td>浙江温州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" />
+                </td>
+                <td>Rain</td>
+                <td>男</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="choice" value="" />
+                </td>
+                <td>MAXMAN</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+    $(function() {
+        $("tbody>tr:odd").addClass('odd');
+        $("tbody>tr:even").addClass('even');
+        $("tbody>tr").click(function(event) {
+            /* Act on the event */
+            if ($(this).hasClass('selected')) {
+                $(this)
+                    .removeClass('selected')
+                    .find(':checkbox').attr("checked", false);
+            } else {
+                $(this)
+                    .addClass('selected')
+                    .find(':checkbox').attr("checked", true);
+            }
+        });
+        //初始化时如果被选中，则为其添加类
+        $("tbody>tr:has(:checked)").addClass('selected');
+    });
+    </script>
+</body>
+
+</html>

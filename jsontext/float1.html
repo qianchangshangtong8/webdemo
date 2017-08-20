@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动方法汇总2</title>
+    <style type="text/css">
+    .div1 {
+        border: 1px solid red
+    }
+    
+    .div2 {
+        background: gray;
+        border: 1px solid black;
+        height: 200px;
+        margin-top: 10px
+    }
+    
+    .left {
+        float: left;
+        width: 40%;
+        height: 200px;
+        background: #DDD
+    }
+    
+    .right {
+        float: right;
+        width: 30%;
+        height: 200px;
+        background: #C0A16B
+    }
+    /*2.父级div定义 伪类:after 和 zoom */
+    /*清除浮动代码*/
+    
+    .clearfloat:after {
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+    
+    .clearfloat {
+        zoom: 1
+    }
+    </style>
+</head>
+
+<body>
+    <div class="div1 clearfloat">
+        <div class="left">
+        
+ （1）父级div定义height。
+（2）结尾处加空div标签clear:both。
+（3）父级div定义伪类:after和zoom。
+（4）父级div定义overflow:hidden。
+（5）父级div定义overflow:auto。
+（6）父级div也浮动，需要定义宽度。
+（7）父级div定义display:table。
+（8）结尾处加br标签clear:both。</div>
+        <div class="right">Right</div>
+        <div class="clearfloat"></div>
+    </div>
+    <div class="div2">
+        （1）创建XMLHttpRequest对象 （2）创建http请求，并指定方法，URL和验证信息 （3）设置响应http请求变化的函数 （4）发送http请求 （5）获取异步调用返回的函数 （6）使用JS和DOM实现局部刷新
+    </div>
+
+
+    //文字滚动
+    <marquee direction=right scrollamount=1 scrolldelay=0.01
+     onmouseover='this.stop()' onmouseout='this.start()' height=60>
+        <!-- head_scrolltext -->
+        <tr>
+            <td>
+                共和国
+                </table>
+                <!-- end head_scrolltext -->
+    </marquee>
+     <a href="javascript:doPrint()">打印</a>
+//更改网页北京颜色
+     <FORM>
+  <SELECT SIZE="1" onChange="bgChange(this);">
+  	<OPTION>Red</OPTION>
+  	<OPTION>Orange</OPTION>
+  	<OPTION>Yellow</OPTION>
+  	<OPTION>Green</OPTION>
+  	<OPTION>Blue</OPTION>
+  	<OPTION>Indigo</OPTION>
+  	<OPTION>Violet</OPTION>
+  	<OPTION>White</OPTION>
+  	<OPTION>pink</OPTION>
+  </SELECT>
+ </FORM>
+
+</body>
+<!-- <SCRIPT>
+function bgChange(selObj) {
+ newColor = selObj.options[selObj.selectedIndex].text;
+ document.bgColor = newColor;
+ selObj.selectedIndex = -1;
+ }
+//
+</SCRIPT> -->
+<script type="text/javascript">
+function bgChange(selObj){
+	var newColor=selObj.options[selObj.selectedIndex].text;
+	document.bgColor=newColor;
+}
+
+
+</script>
+
+<!-- 双击网页自动跑 -->
+<SCRIPT LANGUAGE="JavaScript">
+var currentpos,timer;
+function initialize()
+{
+ timer=setInterval("scrollwindow()",1);
+}
+function sc()
+{
+ clearInterval(timer);
+}
+function scrollwindow()
+{
+ currentpos=document.body.scrollTop;
+ window.scroll(0,++currentpos);
+ if (currentpos != document.body.scrollTop)
+  sc();
+}
+document.onmousedown=sc
+document.ondblclick=initialize
+</SCRIPT>
+
+</html

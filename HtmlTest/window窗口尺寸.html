@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+<title>浏览器窗口</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+   
+<pre>Window 尺寸
+有三种方法能够确定浏览器窗口的尺寸（浏览器的视口，不包括工具栏和滚动条）。
+	<h5>对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：</h5>
+<h3>window.innerHeight - 浏览器窗口的内部高度
+window.innerWidth - 浏览器窗口的内部宽度</h3>
+	<h5>对于 Internet Explorer 8、7、6、5：</h5>
+<h3>document.documentElement.clientHeight
+	document.documentElement.clientWidth</h3>
+	<h5>或者</h5>
+<h3>document.body.clientHeight
+	document.body.clientWidth</h3>
+实用的 JavaScript 方案（涵盖所有浏览器）：</pre>
+ <p id="demo"></p>
+<script>
+var w=window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h=window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+x=document.getElementById("demo");
+x.innerHTML="浏览器的内部窗口宽度：" + w + "，高度：" + h + "。"
+</script>
+</body>
+</html>

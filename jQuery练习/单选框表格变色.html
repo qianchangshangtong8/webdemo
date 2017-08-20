@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>单选框表格变色</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    table {
+        border: 0;
+        border-collapse: collapse;
+    }
+    
+    td {
+        font: normal 12px/17px Arial;
+        padding: 2px;
+        width: 100px;
+    }
+    
+    th {
+        font: bold 12px/17px Arial;
+        text-align: left;
+        padding: 4px;
+        border-bottom: 1px solid #333;
+    }
+    /* 偶数行样式*/
+    
+    .even {
+        background: #FFF38F;
+    }
+    /* 奇数行样式*/
+    
+    .odd {
+        background: #FF00ff;
+    }
+    
+    .selected {
+        background: #FF6500;
+        color: #fff;
+    }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> </th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" />
+                </td>
+                <td>张山</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" />
+                </td>
+                <td>李四</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" checked='checked' />
+                </td>
+                <td>王五</td>
+                <td>男</td>
+                <td>湖南长沙</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" />
+                </td>
+                <td>找六</td>
+                <td>男</td>
+                <td>浙江温州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" />
+                </td>
+                <td>Rain</td>
+                <td>男</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="choice" value="" />
+                </td>
+                <td>MAXMAN</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+    $(function() {
+        $("tbody>tr:odd").addClass('odd');
+        $("tbody>tr:even").addClass('even');
+        $("tbody>tr").click(function(event) {
+            /* Act on the event */
+            $(this)
+                .addClass('selected')
+                .siblings().removeClass('selected')
+                .end()
+                .find(":radio").attr("checked", true);
+        });
+        $("tbody>tr:has(:checked)").addClass('selected');
+    });
+    </script>
+</body>
+
+</html>

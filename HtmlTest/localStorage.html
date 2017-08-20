@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>localStorage && sessionStorage</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <p>刷新一下试试！</p>
+    <script type="text/javascript">
+    if (sessionStorage.pagecount) {
+        sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+    } else {
+        sessionStorage.pagecount = 1;
+    }
+    document.write("hello" + "  " + sessionStorage.pagecount + "times");
+
+    // if (localStorage.pagecount) {
+    //     localStorage.pagecount = Number(localStorage.pagecount) + 1;
+    // } else {
+    //     localStorage.pagecount = 1;
+    // }
+    // document.write("hello" + " " + localStorage.pagecount + "times");
+    </script>
+</body>
+
+</html>

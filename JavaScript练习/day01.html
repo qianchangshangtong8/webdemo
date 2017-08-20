@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+		var meter = document.getElementsByTagName("meter")[0];
+		meter.onclick=function(){
+			meter.value+=1;
+		}
+}
+	</script>
+</head>
+<body>
+<header>我是头部</header>
+<div id="main">
+	<nav>
+		<a href="">导航1</a>
+		<a href="">导航2</a>
+	</nav>
+	<section>
+		<hgroup>
+			<h1>稳住</h1>
+			<h2>文章</h2>
+		</hgroup>
+		<article>
+		里约奥运会还有一周在马拉卡纳体育场开幕，这是一座传奇的体育场，毫无疑问，里约奥运开幕式举办地的经历，又将为这座体育场增加新的传奇。
+		</article>
+	</section>
+	<meter max="10" min="0" value="1"></meter>
+
+</div>
+<footer>版权所有</footer>
+</body>
+</html>

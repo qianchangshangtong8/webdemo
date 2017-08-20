@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+var myobj,x ,i,j="";
+myobj={
+	"name":"网站",
+	"time":"times",
+	"site":[
+		{"name":"google","info":["translate","play","apple"]},
+		{"name":"baidu","info":["translate","mark","map"]},
+		{"name":"sina","info":["blog","chat","movie"]}
+
+	]
+}
+for(i in myobj.site){
+	x+="<h1>"+myobj.site[i].name+"</h1>";
+	for( j in myobj.site[i].info){
+		x+=myobj.site[i].info[j]+"<br>";
+	}
+}
+document.getElementById("demo").innerHTML=x;
+
+</script>
+</body>
+</html>

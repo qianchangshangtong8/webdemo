@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+*{
+	margin: 0px;padding: 0px;
+}
+#slide{
+    width: 700px;
+    height: 335px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+</style>
+</head>
+<body>
+	<div id="slide">
+		<ul>
+			
+		</ul>
+	</div>
+</body>
+<script>
+	var pics = [
+	    {img:"images/1.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/2.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/3.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/4.jpg",url:"http://www.houdunwang.com"},
+	];
+    // 创建对象
+    slide = function(id,data){
+        this.id = id;
+        this.data = data;
+        // 抓取舞台元素
+        this.div = document.getElementById(id);
+        this.ul = this.div.getElementsByTagName('ul')[0];
+        // 图片的宽度
+        this.imgWidth = 700;
+        // 块的宽度
+        this.boxWidth = 28;
+        // 块的数量
+        this.boxNum = Math.floor(this.imgWidth/this.boxWidth);
+        // 核心执行函数
+        this.run=function(){
+            this.createBox();
+            this.createText();
+            this.change();
+        };
+        // 创建块的函数
+        this.createBox=function(){
+
+        }
+        // 创建序号的函数
+        this.createText=function(){
+
+        }
+        // 点击执行旋转操作的函数
+        this.change=function(){
+
+        }
+
+
+
+
+
+
+    };
+    // 实例化对象
+    var slide_obj = new slide("slide",pics);
+    slide_obj.run();
+
+
+
+
+</script>
+</html>

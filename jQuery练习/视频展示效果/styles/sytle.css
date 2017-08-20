@@ -1,0 +1,138 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+li{
+	list-style: none;
+}
+
+.v-show {
+    width: 595px;
+    margin: 20px 0 1px 60px;
+}
+.v-head{
+	height: 35px;
+	overflow: hidden;
+	background: url('../img/btn_cartoon.gif') no-repeat 0 0;
+}
+.v-head h3{
+	float: left;
+	width: 84px;
+    height: 35px;
+    overflow: hidden;
+    text-indent: -9999px;
+	background: url('../img/btn_cartoon.gif') no-repeat;
+}
+.v-head .v-head-h{
+	background-position: 0 -100px;
+
+}
+.v-head-tip{
+	display: inline;
+    float: left;
+    margin: 14px 0 0 10px;
+}
+.v-head-tip span{
+	 display: inline;
+    float: left;
+    width: 7px;
+    height: 7px;
+    overflow: hidden;
+    margin: 0 2px;
+    background: url(../img/btn_cartoon.gif) no-repeat 0 -320px;
+    text-indent: -9999px;
+}
+.v-head-tip .current{
+	background-position: 0 -220px;
+}
+
+
+.v-change-btn{
+	float: left;
+	margin: 7px 0 0 10px;
+}
+.v-change-btn span{
+	display: block;
+	width: 30px;
+	height: 23px;
+	overflow: hidden;
+	float: left;
+	background: url('../img/btn_cartoon.gif') no-repeat ;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+.v-change-btn  .prev{
+
+background-position:  0px -400px;
+
+}
+.v-change-btn  .next{
+	width: 31px;
+	background-position: -30px -400px;
+}
+.v-show .v-head em{
+	float: right;
+	width: 60px;
+	height: 35px;
+	line-height: 35px;
+
+
+}
+.v-content{
+	position: relative;
+	width: 592px;
+	height: 160px;
+	overflow: hidden;
+	 border-right: 1px solid #E7E7E7;
+    border-bottom: 1px solid #E7E7E7;
+    border-left: 1px solid #E7E7E7;
+}
+.v-content-list{
+	position: absolute;
+	width: 2500px;
+	left: 0;
+	top: 0;
+}
+.v-content-list ul{
+	float: left;
+}
+.v-content-list ul li{
+	display: inline;
+    float: left;
+    margin: 10px 2px 0;
+    padding: 8px;
+   
+}
+.v-content-list ul li a {
+	display: block;
+    width: 128px;
+    height: 80px;
+    overflow: hidden;
+}
+.v-content ul li img {
+    width: 128px;
+    height: 96px;
+}
+
+.v-content ul li h4 {
+    width: 128px;
+    height: 18px;
+    overflow: hidden;
+    margin-top: 12px;
+    font-weight: normal;
+}
+
+.v-content ul li h4 a {
+    display: inline !important;
+    height: auto !important;
+}
+
+.v-content ul li span {
+    color: #666;
+}
+
+.v-content ul li em {
+    color: #888;
+    font-family: Verdana;
+    font-size: 0.9em;
+}

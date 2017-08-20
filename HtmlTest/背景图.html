@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="300" height="300" style="border:1px solid blue;">你的浏览器不支持canvas</canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+
+
+        var ct = document.getElementById("myCanvas");
+        var cxt = ct.getContext("2d");
+        // var gar = cxt.createLinearGradient(0, 0, 170, 50);
+        // gar.addColorStop(0, "#ff0000");
+        // gar.addColorStop(0.5, "#00ff00");
+        // gar.addColorStop(1, "#0000ff");
+        // cxt.fillStyle = gar;
+        // cxt.fillRect  (0, 0, 170, 50);
+
+        var img = new Image();
+        img.src = "../img/22.png"
+        img.onload=function(){
+        	cxt.drawImage(img, 0, 0);
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+*{
+	margin: 0px;padding: 0px;
+}
+#slide{
+    width: 700px;
+    height: 335px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+    /*透视*/
+    perspective:400px;
+}
+#slide ul li{
+	width: 28px;
+	height: 335px;
+	float: left;
+	list-style: none;
+	position: relative;
+    transform-style:preserve-3d;
+    transform:rotateX(0deg);
+    transform-origin:center center -168px;
+}
+#slide ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;top: 0px;
+    /*让元素背对屏幕时不显示*/
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+
+}
+#slide ul li a:nth-child(2){
+    top:-336px;
+    transform-origin:bottom;
+    transform:rotateX(90deg);
+}
+#slide ul li a:nth-child(3){
+    transform:translateZ(-336px) rotateX(180deg);
+}
+#slide ul li a:nth-child(4){
+    top:336px;
+    transform-origin:top;
+    transform:rotateX(-90deg);
+}
+#slide nav{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 1000;
+}
+#slide nav a{
+	display: inline-block;
+	width: 25px;height: 25px;
+	background: #999;
+	border-radius: 50%;
+	line-height: 2em;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	color: white;
+	margin-right: 5px;
+}
+</style>
+</head>
+<body>
+	<div id="slide">
+		<ul>
+			
+		</ul>
+	</div>
+</body>
+<script>
+	var pics = [
+	    {img:"images/1.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/2.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/3.jpg",url:"http://www.houdunwang.com"},
+	    {img:"images/4.jpg",url:"http://www.houdunwang.com"},
+	];
+    // 创建对象
+    slide = function(id,data){
+        this.id = id;
+        this.data = data;
+        // 抓取舞台元素
+        this.div = document.getElementById(id);
+        this.ul = this.div.getElementsByTagName('ul')[0];
+        // 图片的宽度
+        this.imgWidth = 700;
+        // 块的宽度
+        this.boxWidth = 28;
+        // 块的数量
+        this.boxNum = Math.floor(this.imgWidth/this.boxWidth);
+        // 核心执行函数
+        this.run=function(){
+            this.createBox();
+            this.createText();
+            this.change();
+        };
+        // 创建块的函数
+        this.createBox=function(){
+        	var li ="";
+        	// 批量产生块
+        	for(var i=0;i<this.boxNum;i++){
+        		// 块的开始
+        		li = li + "<li>";
+        		for(var j=0;j<data.length;j++){
+        		   // 设置不同a的背景 
+        		   var style = "background:url("+data[j]['img']+") no-repeat "+i*-this.boxWidth+"px 0px";
+        		   // 把a的背景设置填入a
+                   li = li + "<a href='' style='"+style+"'></a>";
+        		}
+        		// 块的结束
+        		li = li + "</li>";
+        	}
+        	// 把块填入到ul中
+        	this.ul.innerHTML = li;
+
+        }
+        // 创建序号的函数
+        this.createText=function(){
+        	var nav = "<nav>";
+        	// 生成多个可点击的序号
+        	for(var i=0;i<data.length;i++){
+        		nav = nav + "<a href='javascript:;'>"+(i+1)+"</a>";
+        	};
+        	nav = nav + "</nav>";
+        	// 把序号加入到舞台元素里面
+        	this.div.innerHTML += nav;
+        }
+        // 点击执行旋转操作的函数
+        this.change=function(){
+           // 抓取所有的li和a
+           var liList = this.div.getElementsByTagName("li");
+           var aList = this.div.getElementsByTagName("nav")[0].getElementsByTagName("a");
+           // 绑定点击事件
+           for(var i=0;i<aList.length;i++){
+               aList[i].onclick=(function(index){
+                    return function(){
+                        for(var n=0;n<liList.length;n++){
+                            // 让li旋转
+                            liList[n].style.transform = "rotateX(-"+index*90+"deg)";
+                            // 时间间隔
+                            liList[n].style.transition = "1s "+n*80+"ms";
+                        }
+                    }
+               })(i);
+           }
+        }
+
+
+
+
+
+
+    };
+    // 实例化对象
+    var slide_obj = new slide("slide",pics);
+    slide_obj.run();
+
+
+
+
+</script>
+</html>

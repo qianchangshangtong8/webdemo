@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script type="text/javascript">
+    // //工厂模式
+    // function person(name,age,job){
+    // 	var o=new Object();
+    // 	o.name=name;
+    // 	o.age=age;
+    // 	o.job=job;
+    // 	o.sayName=function(){
+    // 		alert(this.name);
+    // 	};
+    // 	return o;
+    // }
+    // var person1=person("xie",20,"jingli");
+    // person1.sayName();
+
+
+    //构造函数模式
+    // function Person(name,age,job){
+    // 	this.name=name;
+    // 	this.age=age;
+    // 	this.job=job;
+    // 	this.sayName=function(){
+    // 		alert(this.name);
+    // 	};
+    // }
+    // var person1=new Person("xie",20,"ceo");
+    // person1.sayName();
+
+
+
+    //原型模式
+    // function Person(){}
+    // Person.prototype.name="xie";
+    // Person.prototype.age=20;
+    // Person.prototype.job="manong";
+    // Person.prototype.sayName=function(){
+    // 	alert(this.name);
+    // };
+    // var person1=new Person();
+    // person1.sayName();
+
+
+
+    //构造与原型组合
+    // function Person(name,age,job){
+    // 	this.name=name;
+    // 	this.age=age;
+    // 	this.job=job;
+    // }
+    // Person.prototype={
+    // 	constructor:Person,
+    // 	sayName:function(){
+    // 		alert(this.name);
+    // 	}
+    // }
+    // var person1=new Person("xiejiashan",20,"ceo");
+    // person1.sayName();
+
+
+
+    // //动态原型
+    // function Person(name,age,job){
+    // 	this.name=name;
+    // 	this.age=age;
+    // 	this.job=job;
+    // 	if(typeof this.sayName != "function"){
+    // 		Person.prototype.sayName=function(){
+    // 			alert(this.name);
+    // 		}
+    // 	}
+    // }
+    // var person1=new Person("xie",20,"slsl");
+    // person1.sayName();
+
+
+    //寄生构造函数
+    function Person(name, age, job) {
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.job = job;
+        o.sayName = function() {
+            alert(this.name);
+        };
+        return o;
+    }
+    var person1 = new Person("zhangsan", 20, "lishi");
+    person1.sayName();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

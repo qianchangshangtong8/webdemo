@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>下拉框示例</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div.centent {
+        float: left;
+        text-align: center;
+        margin: 10px;
+    }
+
+    span {
+        display: block;
+        margin: 2px 2px;
+        padding: 4px 10px;
+        background: #898989;
+        cursor: pointer;
+        font-size: 12px;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="centent">
+        <select multiple="multiple" id="select1" style="width: 100px;height: 200px;">
+            <option value="itme1">选项1</option>
+            <option value="item2">选项2</option>
+            <option value="item3">选项3</option>
+            <option value="item4">选项4</option>
+            <option value="item5">选项5</option>
+            <option value="item6">选项6</option>
+        </select>
+        <div>
+            <span id="add">选中添加到右边&gt;&gt;</span>
+            <span id="addAll">选中全部添加到右边&gt;&gt;</span>
+        </div>
+    </div>
+    <div class="centent">
+        <select multiple="multiple" id="select2" style="width: 100px;height: 200px;"></select>
+        <div>
+            <span id="remove">&lt;&lt;选中删除到坐边</span>
+            <span id="removeAll">&lt;&lt;选中全部删除到左边</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        //添加到右边
+        $("#add").click(function(event) {
+            /* Act on the event */
+            var $options = $("#select1 option:selected");
+            $options.appendTo('#select2');
+        });
+
+        //全部添加到右边
+        $("#addAll").click(function(event) {
+            /* Act on the event */
+            var $optinos = $("#select1 option");
+            $optinos.appendTo('#select2');
+        });
+
+
+        //双击添加到右边
+        $("#select1").dblclick(function(event) {
+            /* Act on the event */
+            var $options = $("option:selected", this);
+            $options.appendTo('#select2');
+        });
+
+        //删除到左边
+        $("#remove").click(function() {
+            // body...
+            var $options = $("#select2 option:selected");
+            $options.appendTo('#select1');
+        });
+
+        //全部删除到左边
+        $("#removeAll").click(function() {
+            var $options = $("#select2 option");
+            $options.appendTo('#select1');
+        });
+
+        //双击删除到左边
+        $("#select2").dblclick(function(event) {
+            /* Act on the event */
+            var $optinos = $("option:selected", this);
+            $optinos.appendTo('#select1')
+        });
+
+    });
+    </script>
+</body>
+
+</html>

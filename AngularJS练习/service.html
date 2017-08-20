@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in counts">{{x | myFormat}}</li>
+        </ul>
+<!--         使用ng-options创建下拉列表
+ -->        <!-- 	<select ng-model="selected" ng-options="y for y in names"></select>
+ -->
+
+<!--  		使用ng-repeat创建下拉列表
+ -->        <!-- <select>
+            <option ng-repeat="y in names">{{y}}</option>
+        </select> -->
+
+	<!-- ng-options
+  <select ng-model="selected" ng-options="y.site for y in sites"></select>
+  <p>选择是{{selected.site}}</p>
+  <p>网址是{{selected.url}}</p> -->
+
+<!-- <select ng-model="selected">
+<option ng-repeat="x in sites" value="{{x.url}}">{{x.site}}</option>
+</select>
+<p>你的选择是{{selected}}</p> -->
+
+<select ng-model="selectedCars" ng-options="y.brand for (x,y) in cars"></select>
+<p>车：{{selectedCars.brand}}</p>
+<p>类型：{{selectedCars.model}}</p>
+<p>颜色：{{selectedCars.color}}</p>
+    </div>
+    <script>
+    var app = angular.module('myApp', []);
+    // 自定义服务
+    app.service('hexafy', function() {
+        this.myFun = function(x) {
+            return x.toString(16);
+        };
+    });
+    // 自定义过滤器
+    app.filter('myFormat', ['hexafy', function(hexafy) {
+        return function(x) {
+            return hexafy.myFun(x);
+        };
+    }]);
+    app.controller('myCtrl', function($scope) {
+        $scope.counts = [20, 16, 10];
+        $scope.names = ["us", "china", "wul"];
+        $scope.sites=[ 
+        {site : "Google", url : "http://www.google.com"},
+	    {site : "Runoob", url : "http://www.runoob.com"},
+	    {site : "Taobao", url : "http://www.taobao.com"}];
+	    $scope.cars = {
+        car01 : {brand : "Ford", model : "Mustang", color : "red"},
+        car02 : {brand : "Fiat", model : "500", color : "white"},
+        car03 : {brand : "Volvo", model : "XC90", color : "black"}
+    };
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>事件绑定-显示内容</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    .content {
+        width: 200px;
+        height: 200px;
+        display: none;
+    }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <div id="panel">
+        <h2 class="header">什么是jQuery？</h2>
+        <div class="content">
+            jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        <!-- 点击显示内容-->
+        // $("#panel .header").bind("click",function(){
+        // 	var $content=$(this).next();
+        // 	if($content.is(":visible")){
+        // 		$content.hide();
+        // 	}else{
+        // 		$content.show();
+        // 	}
+        // });
+
+
+        <!-- 移动鼠标显示内容-->
+        // $("#panel h2.header").bind("mouseover",function(){
+        // 	$(this).next().show();
+        // }).bind("mouseout",function(){
+        // 	$(this).next().hide();
+        // })
+
+        <!--移动鼠标hover显示内容-->
+
+        // $("#panel h2.header").hover(function() {
+        //     $(this).next().show();
+        // }, function() {
+        //     $(this).next().hide();
+        // })
+
+
+        <!--移动鼠标显示隐藏内容-->
+        $("#panel h2.header").mouseover(function(event) {
+            /* Act on the event */
+            $(this).next().show();
+        }).mouseout(function(event) {
+            /* Act on the event */
+            $(this).next().hide();
+        });
+    })
+    </script>
+</body>
+
+</html>

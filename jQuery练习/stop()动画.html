@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>stop()动画</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        padding: 50px;
+    }
+    
+    #panel {
+    	position: relative;
+        height: 50px;
+        width: 50px;
+        overflow: hidden;
+    }
+    
+    .hh {
+        padding: 5px;
+        background: #96E555;
+        position: relative;
+        cursor: pointer;
+        width: 300px;
+    }
+    
+    .content {
+        padding: 10px;
+        text-indent: 2em;
+        border-top: 1px solid #0050D0;
+        display: block;
+        width: 280px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="panel">
+        <h5 class="hh">什么是jquery</h5>
+        <div class="content">
+            jquery是一个JavaScript（JS）框架，它支持JS的常规操作以及一些扩展，比如图形等，对JSON格式也能很好的解析，ajax也做了封装，语法也比较简单。很强大。但不好的是它将js语法与开发人员完全隔离，也就说你开发几年jquery后还会不会用纯js都是个问题。 我认识一些朋友，他们完全用Jquery开发，一些特效效果不费吹灰之力就出来了，但如果抛弃jqery框架，估计最简单的JS代码都看不懂。
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        $("#panel").click(function() {
+            $(this).animate({
+                left: "+=50px"
+            }, 300);
+        });
+
+        $("#panel").hover(function() {     //鼠标移入
+            $(this).stop(true)     //清楚未执行完的队列
+                .animate({
+                    height: "400px"
+                }, 200)
+                .animate({
+                    width: "400px"
+                }, 200)
+                .animate({
+                	opacity:"0.2"
+                })
+        }, function() {          //鼠标移出
+            $(this).stop(true)     //清楚未执行完的队列
+                .animate({
+                    height: "50px"
+                }, 200)
+                .animate({
+                    width: "50px"
+                }, 200)
+                .animate({
+                	opacity:"0.9"
+                })
+        });
+    })
+    </script>
+</body>
+
+</html>

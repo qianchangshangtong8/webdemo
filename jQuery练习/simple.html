@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    li {
+        list-style: none;
+    }
+    .tab{
+        width: 250px;
+        height: 250px;
+        border: 1px solid gray;
+    }
+    .tab-box{
+        width: 200px;
+        height: 200px;
+        border: 1px solid blue;
+        margin: 0 auto;
+    }
+    .tab .tab-menu ul {
+        height: 15px;
+        width: 200px;
+    }
+    
+    .tab .tab-menu ul li {
+        display: block;
+        float: left;
+    }
+    
+    .selected {
+        background: gray;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .hover {
+        background: blue;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <form method="post" action="#">
+        <input type="checkbox" value="1" name="check" checked="checked" />
+        <input type="checkbox" value="2" name="check" />
+        <input type="checkbox" value="3" name="check" checked="checked" />
+        <input type="button" value="你选中的个数" id="btn" />
+    </form>
+    <div class="tab">
+        <div class="tab-menu">
+            <ul>
+                <li class="selected">选项卡1</li>
+                <li>选项卡2</li>
+                <li>选项卡3</li>
+            </ul>
+        </div>
+        <div class="tab-box">
+            <div>内容1</div>
+            <div class="hide">内容2</div>
+            <div class="hide">内容3</div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        var btn = $("#btn");
+        btn.click(function() {
+            var array = new Array();
+            var items = document.getElementsByName("check");
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].checked) {
+                    array.push(items[i].value);
+                }
+            }
+            alert("numbers:" + array.length);
+        });
+    });
+    </script>
+    <!--网页选项卡-->
+    <script type="text/javascript">
+    $(function() {
+        var $div_li=$("div.tab-menu ul li ");
+        $div_li.click(function(){
+            $(this).addClass('selected').siblings().removeClass("selected");
+            var index=$div_li.index(this);
+            $("div.tab-box>div")
+            .eq(index).show().siblings().hide();
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    /*
+    div {
+        width: 50px;
+        height: 50px;
+        border: 1ps solid red;
+        background-color: green;
+        text-align: center;
+        line-height: 50px;
+    } */
+    </style>
+</head>
+
+<body>
+    <!-- <div id="myDiv"></div>
+    <input type="text" name="text" id="myText"> -->
+    <!--  <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul> -->
+    <!--  <div id="myDiv">click me click me</div>
+    <ul id="myMenu" style="position: absolute;visibility:hidden;background-color:lightblue">
+        <li><a href="#">click me please</a></li>
+        <li><a href="#">click me please</a></li>
+        <li><a href="#">click me please</a></li>
+    </ul> -->
+    <input type="text" name="text" id="txt" maxlength="3">
+    <!--  <form method="post" action="http://www.nczonline.net"> -->
+    <form method="post">
+        <p>Enter your telephone number:</p>
+        <input type="text" name="tel1" id="txtTel1" size="3" maxlength="3">
+        <input type="text" name="tel2" id="txtTel2" size="3" maxlength="3">
+        <input type="text" name="tel3" id="txtTel3" size="4" maxlength="4">
+        <input type="submit" value="Submit">
+    </form>
+    <script type="text/javascript">
+    var EventUtil = {
+        getEvent: function(event) {
+            return event ? event : window.event;
+        },
+        addHandler: function(element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        removeHandler: function(element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        },
+        getRelatedTarget: function(event) {
+            if (event.relatedTarget) {
+                return event.relatedTarget;
+            } else if (event.toElement) {
+                return event.toElement;
+            } else if (event.fromElement) {
+                return event.fromElement;
+            } else {
+                return null;
+            }
+        },
+        getTarget: function(event) {
+            return event.target || event.srcElement;
+        },
+        getButton: function(event) {
+            if (document.implementation.hasFeature("MouseEvents", 2.0)) {
+                return event.button;
+            } else {
+                switch (event.button) {
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                        return 0;
+                    case 2:
+
+                    case 6:
+                        return 2;
+                    case 4:
+
+                        return 1;
+                }
+            }
+        },
+        getCharCode: function(event) {
+            if (typeof event.charCode == "number") {
+                return event.charCode;
+            } else {
+                return event.keyCode;
+            }
+        },
+        preventDefault: function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+
+        setClipboardText: function(event, value) {
+            if (event.clipboardData) {
+                return event.clipboardData.setData("text/plain", value);
+            } else if (window.clipboardData) {
+                return window.clipboardData.setData("text", value);
+            }
+        },
+        getClipboardText: function(event) {
+                var clipboardData = (event.clipboardData || window.clipboardData);
+                return clipboardData.getData("text");
+            }
+            // getWheelDelta: function(event) {
+            //     if (event.wheelDelta) {
+            //         return (client.engine.opera && client.engine.opera < 9.5 ? -event.wheelDelta : event: wheelDelta);
+            //     } else {
+            //         return -event.detail * 40;
+            //     }
+            // }
+    };
+    // var isSupported = document.implementation.hasFeature("MouseEvent", 3.0);
+    // alert(isSupported);
+    // var div = document.createElement("div");
+    // EventUtil.addHandler(div, "click", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     alert("X:" + event.pageX + "Y:" + event.pageY);
+    // });
+    // document.body.appendChild(div);
+
+    // var div = document.getElementById("myDiv");
+    // EventUtil.addHandler(div, "click", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     var pageX = event.pageX,
+    //         pageY = event.pageY;
+    //     if (pageX === undefined) {
+    //         pageX = event.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
+    //     }
+    //     if (pageY === undefined) {
+    //         pageY = event.clientY + (document.body.scrollTop || document.documentElement.scrollTop);
+    //     }
+    //     alert("pagex:"+pageX+",pageY:"+pageY);
+    // });
+
+    // var div = document.getElementById("myDiv");
+    // EventUtil.addHandler(div, "click", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     var keys = new Array();
+    //     if (event.shiftKey) {
+    //         keys.push("shift");
+    //     }
+    //     if (event.ctrlKey) {
+    //         keys.push("ctrl");
+    //     }
+    //     if (event.altKey) {
+    //         keys.push("alt");
+    //     }
+    //     if (event.metaKey) {
+    //         keys.push("window");
+    //     }
+    //     alert("keys :" + keys.join("---"));
+    // });
+
+    // var div = document.getElementById("myDiv");
+    // EventUtil.addHandler(div, "mouseout", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     var target = EventUtil.getTarget(event);
+    //     var relatedTarget = EventUtil.getRelatedTarget(event);
+    //     alert("mouseout:" + target.tagName + "to" +relatedTarget.tagName);
+    // });
+    // EventUtil.addHandler(document.body,"mouseover",function(event){
+    //  event= EventUtil.getEvent(event);
+    //  var target=EventUtil.getTarget(event);
+    //  var relatedTarget = EventUtil.getRelatedTarget(event);
+    //  alert("mouseover:"+target.tagName+"to"+relatedTarget.tagName);
+    // })
+
+    // var div = document.getElementById("myDiv");
+    // EventUtil.addHandler(div, "mousedown", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     alert(EventUtil.getButton(event));
+    // });
+    // EventUtil.addHandler(document, "mousewheel", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     alert(event.wheelDelta);
+    // });
+
+    // EventUtil.addHandler(window,"DOMMouseScroll",function(event){
+    //      event =EventUtil.getEvent(event);
+    //      alert(event.detail);
+    // });
+
+    // var text=document.getElementById("myText");
+    // EventUtil.addHandler(text,"keypress",function(event){
+    //  event=EventUtil.getEvent(event);
+    //  alert(EventUtil.getCharCode(event));
+    // });
+
+
+    // var text = document.getElementById("myText");
+    // EventUtil.addHandler(text, "keypress", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     var identifier = event.key || event.keyIdentifier;
+    //     if (identifier) {
+    //         alert(identifier);
+    //     }
+    // });
+
+
+    // var textbox = document.getElementById("myText");
+    // EventUtil.addHandler(textbox, "textInput", function(event) {
+    //     event = EventUtil.getEvent(event);
+    //     alert(event.data);
+    // });
+    // var textbox = document.getElementById("myText");
+    // if (document.implementation.hasFeature("CompositionEvent", "3.0")) {
+    //     EventUtil.addHandler(textbox, "compositionstart", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         alert(event.data);
+    //     });
+    //     EventUtil.addHandler(textbox, "compositionupdate", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         alert(event.data);
+    //     });
+    //     EventUtil.addHandler(textbox, "compositionend", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         alert(event.data);
+    //     });
+    // } else {
+    //     document.write("<p>Your browser does not support composition events.</p>");
+    // }
+
+    // EventUtil.addHandler(window,"load",function(event){
+    //  var list=document.getElementById("myList");
+    //  EventUtil.addHandler(document,"DOMNodeRemoved",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //      alert(event.relateNode);
+    //  });
+    //  EventUtil.addHandler(list.firstChild,"DOMNodeRemovedFromDocument",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //  });
+    //  EventUtil.addHandler(document,"DOMSubtreeModified",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //  });
+    //  list.parentNode.removeChild(list);
+    // });
+
+    // EventUtil.addHandler(window,"load",function(event){
+    //  var list=document.getElementById("myList");
+    //  var item=document.createElement("li");
+    //  item.appendChild(document.createTextNode("hello world!"));
+
+    //  EventUtil.addHandler(document,"DOMNodeInserted",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //      alert(event.relateNode);
+    //  });
+    //  EventUtil.addHandler(item,"DOMNodeInsertedIntoDocument",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //  });
+    //  EventUtil.addHandler(window,"DOMSubtreeModified",function(event){
+    //      alert(event.type);
+    //      alert(event.target);
+    //  });
+    //  list.appendChild(item);
+    // });
+
+
+    // //上下文菜单contentmenu
+    // EventUtil.addHandler(window, "load", function(event) {
+    //     var div = document.getElementById("myDiv");
+    //     EventUtil.addHandler(div, "contextmenu", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         EventUtil.preventDefault(event);
+    //         var menu = document.getElementById("myMenu");
+    //         menu.style.left = event.clientX + "px";
+    //         menu.style.top = event.clientY + "px";
+    //         menu.style.visibility = "visible";
+    //     });
+    //     EventUtil.addHandler(document, "click", function(event) {
+    //         document.getElementById("myMenu").style.visibility = "hidden";
+    //     });
+    // });
+
+    //beforeunload
+    EventUtil.addHandler(window, "beforeunload", function(event) {
+        event = EventUtil.getEvent(event);
+        var message = "quit";
+        event.returnValue = message;
+        return message;
+    });
+
+    //文档加载情况DOMContentLoaded
+    // EventUtil.addHandler(document, "DOMContentLoaded", function(event) {
+    //     alert("content load");
+    // });
+    // EventUtil.addHandler(window, "load", function(event) {
+    //     alert("window load");
+    // });
+
+
+    //文档加载情况readystatechange
+    // EventUtil.addHandler(document, "readystatechange", function(event) {
+    //     if (document.readyState == "interactive" || document.readyState == "complete") {
+    //         EventUtil.removeHandler(document, "readystatechange", arguments.callee)
+    //         alert("content load");
+    //     }
+    // });
+
+    //script和link触发readystatechange
+    // EventUtil.addHandler(window, "load", function(event) {
+
+    //     var script = document.createElement("script");
+
+    //     EventUtil.addHandler(script, "readystatechange", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         target = EventUtil.getTarget(event);
+    //         if (target.readyState == "load" || target.readyState == "complete") {
+    //             EventUtil.removeEventHandler(target, "readystatechange", arguments.callee);
+    //             alert("load");
+    //         }
+    //     });
+    //     script.src = "/js/demo.js"
+    //     document.body.appendChild(script);
+    // });
+
+    // (function() {
+
+
+    //     var textbox = document.getElementById("txt");
+    //     EventUtil.addHandler(textbox, "keypress", function(event) {
+    //         event = EventUtil.getEvent(event);
+    //         var target = EventUtil.getTarget(event);
+    //         var charCode = EventUtil.getCharCode(event);
+
+    //         if (!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 && !event.ctrlKey) {
+    //             EventUtil.preventDefault(event);
+    //         }
+    //     });
+    // })();
+
+
+    // (function() {
+    //     function tabForward(event) {
+    //         event = EventUtil.getEvent(event);
+    //         var target = EventUtil.getTarget(event);
+
+    //         if (target.value.length == target.maxLength) {
+    //             var form = target.form;
+
+    //             for (var i = 0, len = form.elements.length; i < len; i++) {
+    //                 if (form.elements[i] == target) {
+    //                     if (form.elements[i + 1]) {
+    //                         form.elements[i + 1].focus();
+    //                     }
+    //                     return;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     var textbox1 = document.getElementById("txtTel1");
+    //     var textbox2 = document.getElementById("txtTel2");
+    //     var textbox3 = document.getElementById("txtTel3");
+    //     EventUtil.addHandler(textbox1, "keyup", tabForward);
+    //     EventUtil.addHandler(textbox2, "keyup", tabForward);
+    //     EventUtil.addHandler(textbox3, "keyup", tabForward);
+    // })();
+
+
+
+    (function(){
+        function tabForward(event){
+            event =EventUtil.getEvent(event);
+            var target=EventUtil.getTarget(event);
+
+            if(target.value.length==target.maxLength){
+                var form=target.form;
+
+                for(var i=0,len=form.elements.length;i<len;i++){
+                    if(form.elements[i]==target){
+                        if(form.elements[i+1]){
+                            form.elements[i+1].focus();
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+        var textbox1=document.getElementById("txtTel1");
+        var textbox2=document.getElementById("txtTel2");
+        var textbox3=document.getElementById("txtTel3");
+        EventUtil.addHandler(textbox1,"keyup",tabForward);
+        EventUtil.addHandler(textbox2,"keyup",tabForward);
+        EventUtil.addHandler(textbox3,"keyup",tabForward);
+    })();
+    </script>
+</body>
+
+</html>

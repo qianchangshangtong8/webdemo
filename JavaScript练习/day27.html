@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    #myDiv {
+        background-color: blue;
+        width: 100px;
+        height: 200px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv" style="background-color: red; border: 1px solid black"></div>
+    <script type="text/javascript">
+    // //document.defaultView，提供了getComputedStyle()方法
+    // var myDiv = document.getElementById("myDiv");
+    // var computedStyle = document.defaultView.getComputedStyle(myDiv, null);
+    // alert(computedStyle.backgroundColor); // "red"
+    // alert(computedStyle.width); // "100px"
+    // alert(computedStyle.height); // "200px"
+    // alert(computedStyle.border); // 在某些浏览器中是"1px solid black"
+
+
+    //CSS规则
+    var sheet = document.styleSheets[0];
+    var rules = sheet.cssRules || sheet.rules; //取得规则列表
+    var rule = rules[0]; //取得第一条规则
+    alert(rule.selectorText); //"div.box"
+    alert(rule.style.cssText); //完整的 CSS 代码
+    alert(rule.style.backgroundColor); //"blue"
+    alert(rule.style.width); //"100px"
+    alert(rule.style.height); //"200px"
+    </script>
+</body>
+
+</html>

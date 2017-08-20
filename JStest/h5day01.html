@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H5拖放</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+
+    }
+    body{
+        background-color: white;
+    }
+    div{
+    	width: 300px;
+    	height: 300px;
+    	border: 1px solid blue;
+    	float: left;
+    	margin: 2px;
+    }
+    
+    </style></head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="../img/11.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
+
+    </div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <script type="text/javascript">
+    function allowDrop(e) {
+    	// body...
+    	e.preventDefault();
+    }
+    function drag(e) {
+    	// body...
+    	e.dataTransfer.setData("Text",e.target.id);
+    }
+    function drop(e){
+    	e.preventDefault();
+    	var data=e.dataTransfer.getData("Text");
+    	e.target.appendChild(document.getElementById(data));
+    }
+
+
+
+    </script>
+</body>
+</html>

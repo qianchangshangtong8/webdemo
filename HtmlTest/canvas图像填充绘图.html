@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+<title>canvas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <p>图片应用:</p>
+<img src="../个性网站/images/hot.gif" id="lamp">
+<p>画布:</p>
+<button onclick="draw('repeat')">重复</button> 
+<button onclick="draw('repeat-x')">重复-x</button> 
+<button onclick="draw('repeat-y')">重复-y</button> 
+<button onclick="draw('no-repeat')">不重复</button>     
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+<script type="text/javascript">
+function draw(direction){
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.clearRect(0,0,c.width,c.height);//在给定的矩形内清除指定的像素
+	var img=document.getElementById("lamp");
+	var pat=ctx.createPattern(img,direction);//在指定的方向上重复指定的元素。
+	ctx.rect(0,0,200,200);//创建填充矩形。
+	ctx.fillStyle=pat;
+	ctx.fill();//填充当前绘图（路径）。
+
+}
+
+
+</script>
+</body>
+</html>

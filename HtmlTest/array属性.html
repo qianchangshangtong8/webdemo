@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>arrayprototype</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <p>array对象的属性:constructor,length,prototype</p>
+    <input type="date" name="">
+    <input type="week" name="">
+    <input type="month" name="">
+    <input type="time" name="">
+    <input type="datetime" name="">
+    <input type="datetime-local" name="">
+    <script type="text/javascript">
+    function employee(name, job, born) {
+        this.name = name;
+        this.job = job;
+        this.born = born;
+    }
+
+    var bill = new employee("Bill Gates", "Engineer", 1985);
+
+    employee.prototype.salary = null;
+    bill.salary = 20000;
+
+    document.write("<b>prototype:</b>" + "<br>" + bill.salary + "</br>");
+    </script>
+    <script type="text/javascript">
+    function employee(name, job, born) {
+        this.name = name;
+        this.job = job;
+        this.born = born;
+    }
+
+    var bill = new employee("Bill Gates", "Engineer", 1985);
+
+    document.write("<b>constructor:</b>" + "<br>" + bill.constructor + "</br>");
+    </script>
+    <script type="text/javascript">
+    var arr = new Array(3)
+    arr[0] = "John"
+    arr[1] = "Andy"
+    arr[2] = "Wendy"
+
+    document.write("<b>length:</b>" + "<br>" + "Original length: " + arr.length)
+    document.write("<br />")
+
+    arr.length = 5
+    document.write("New length: " + arr.length+"<br>")
+    </script>
+    <script type="text/javascript">
+    var test = new Boolean();
+
+    if (test.constructor == Array) {
+        document.write("This is an Array");
+    }
+    if (test.constructor == Boolean) {
+        document.write("This is a Boolean");
+    }
+    if (test.constructor == Date) {
+        document.write("This is a Date");
+    }
+    if (test.constructor == String) {
+        document.write("This is a String");
+    }
+    </script>
+
+    <script type="text/javascript">
+
+
+
+</script>
+</body>
+
+</html>

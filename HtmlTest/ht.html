@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="xiejiashan">
+	<meta name="tool" content="sublime text3">
+	<meta name="time" content="2016/7/25">
+	<meta name="keywords" content="html,HTML,JS,CSS">
+	<!-- <meta http-equiv="Refresh" content="5;url=http://www.baidu.com"> -->
+	<title>Document</title>
+</head>
+<body>
+	<!-- <p>本网站已失效，5秒后换向新网站</p>
+	<a href="http://www.baidu.com">百度一下</a>
+	<embed src="/webdemo/flash/1.MP3">embed</embed>
+	<object data="/webdemo/flash/1.MP3"></object>
+	 -->
+	<!-- <a href="mailto:1033480963@qq.com">我的邮箱</a>
+		<audio controls="controls">
+			<source src="/webdemo/flash/1.ogg" type="audio/ogg">
+			<source src="/webdemo/flash/1.MP3" type="audio/mp3">
+			your browser does not support the audio format.
+			<embed src="/webdemo/flash/1.MP3"></embed>
+		</audio>
+		<embed src="/webdemo/flash/2.swf"></embed> -->
+
+
+		<div id="control">
+			<video  width="300px" id="video1" controls="controls">
+			<source src="/webdemo/flash/halo.mp4" type="video/mp4">
+			<source src="/webdemo/flash/halo.ogg" type="video/ogg">
+			<source src="/webdemo/flash/halo.webm" type="video/webm">
+			<object data="/webdemo/flash/halo.mp4">
+				<embed src="/webdemo/flash/halo.swf"></embed>
+			</object>
+		</video>
+		  	<button  onclick="playPause()">播放/暂停</button>
+  			<button  onclick="makeSmall()">小</button>
+  			<button   onclick="makeNormal()">中</button>
+  			<button   onclick="makeBig()">大</button>
+
+		</div>
+		<script type="text/javascript">
+		var myVideo=document.getElementById("video1");
+			function playPause(){
+				if(myVideo.pause){
+					myVideo.play();
+				}
+				else{
+					myVideo.pause();
+				}
+
+			}
+
+			function makeBig(){
+				myVideo.width=800;
+			}
+			function makeNormal(){
+				myVideo.width=600;
+			}
+			function makeSmall(){
+				myVideo.width=400;
+			}
+
+		</script>
+
+</body>
+</html>

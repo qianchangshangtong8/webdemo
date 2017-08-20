@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    // //原型链继承
+    // function SuperType(){
+    // 	this.property=true;
+    // }
+    // SuperType.prototype.getSuperValue=function(){
+    // 	return this.property;
+    // };
+    // function SubType(){
+    // 	this.subproperty=false;
+    // }
+    // SubType.prototype=new SuperType();
+    // SubType.prototype.getSubValue=function(){
+    // 	return this.subproperty;
+    // };
+    // var test=new SubType();
+    // alert(test.getSuperValue());
+
+
+    //借用构造函数
+    // function SuperType(){
+    // 	this.colors=["red","blue","yellow"];
+    // }
+    // function SubType(){
+    // 	SuperType.call(this);
+    // }
+    // var color1=new SubType();
+    // color1.colors.push("green");
+    // alert(color1.colors);
+
+    // var color2=new SubType();
+    // alert(color2.colors);
+
+    // 借用构造函数:传递参数
+    // function SuperType(name){
+    // 	this.name=name;
+    // }
+    // function SubType(name,age){
+    // 	SuperType.call(this,"xie");
+    // 	this.age=20;
+    // }
+    // var person1=new SubType();
+    // alert(person1.name);
+    // alert(person1.age);
+
+
+    // //组合继承
+    // function SuperType(name){
+    // 	this.name=name;
+    // 	this.colors=["red","blue","yellow"];
+    // }
+    // SuperType.prototype.sayName=function(){
+    // 	alert(this.name);
+    // };
+    // function SubType(name,age){
+    // 	SuperType.call(this,name);
+    // 	this.age=age;
+    // }
+    // SubType.prototype=new SuperType();
+    // SubType.prototype.constructor=SubType;
+    // SubType.prototype.sayAge=function(){
+    // 	alert(this.age);
+    // }
+    // var person1=new SubType("xie",20);
+    // person1.colors.push("green");
+    // alert(person1.colors);
+    // person1.sayName();
+    // person1.sayAge();
+
+    // 原型式继承
+    // function object(o){
+    // 	function F(){}
+    // 		F.prototype=o;
+    // 		return new F();
+    // 	}
+    // var person={
+    // 	name:"xiejiashan",
+    // 	colors:["red","blue","yellow"]
+    // };
+    // var person11=object(person);
+    // person11.colors.push("green");
+    // person11.name="xiexiexie";
+
+    // var peron22=object(person);
+    // peron22.colors.push("gray");
+    // peron22.name="zhang";
+    // alert(person.colors);
+
+
+    // 寄生式继承
+    // function object(o){
+    // 	function F(){}
+    // 	F.prototype=o;
+    // 	return new F();
+    // }
+    // function  createAnother(other){
+    // 	var clone=Object.create(other);//通过调用函数创建对象或者使用Object.create()方法
+    // 	clone.sayHI=function(){           //增强对象
+    // 		alert("hi");
+    // 	};
+    // 	return clone;                    //返回对象
+    // }
+    // var person={
+    // 	name:"xie",
+    // 	friends:["zhang","xiao","fan"]
+    // };
+    // var person1=createAnother(person);
+    // person1.sayHI();
+
+
+
+
+
+    // //寄生组合继承
+    // // function object(o){
+    // // 	function F(){};
+    // // 	F.prototype=o;
+    // // 	return new F();
+    // // }
+    // function inheritPrototype(subType,superType){
+    //       var prototype=Object.create(superType.prototype); //创建父类原型的一个副本 等同于使用Object.create(superType.prototype)或者调用object函数
+    //       prototype.constructor=subType;   //为副本添加constructor属性,弥补重写原型而失去的constructor属性
+    //       subType.prototype=prototype; //将创建的对象(副本)赋值给子类的原型
+    //   }
+    //   function SuperType(name){
+    //   	this.name=name;
+    //   	this.friends=["gay1","gay2"];
+    //   }
+    //   SuperType.prototype.sayName=function(){
+    //   	alert(this.name);
+    //   };
+    //   function SubType(name,age){
+    //       SuperType.call(this,name);  //继承SuperType
+    //       this.age=age;       //扩展出age属性
+    //   }
+    //   inheritPrototype(SubType,SuperType);
+    //   SubType.prototype.sayAge=function(){
+    //   	alert(this.age);
+    // };//扩展出sayAge方法
+
+    // var person1=new SubType("xie",25);
+    // var person2=new SubType("mywei",25);
+    // person1.friends.push("gay3");
+    // person1.sayName();
+    // person1.sayAge();
+    // alert(person1.friends);    //gay1,gay2,gay3
+    // alert(person2.friends); //gay1,gay2
+    // alert(person1 instanceof SubType);   //true
+    // alert(person1 instanceof SuperType);  //true
+    // alert(SubType.prototype.isPrototypeOf(person1));  //true
+    // alert(SuperType.prototype.isPrototypeOf(person1)); //true
+
+
+
+
+    //书本方法寄生组合继承
+    // function object(o){
+    // 	function F(){}
+    // 	F.prototype=o;
+    // 	return new F();
+    // }
+    // function inheritPrototype(subType, superType){
+    // var prototype = object(superType.prototype); //创建对象
+    // prototype.constructor = subType; //增强对象
+    // subType.prototype = prototype; //指定对象
+    // }
+    // function SuperType(name){
+    // this.name = name;
+    // this.colors = ["red", "blue", "green"];
+    // }
+    // SuperType.prototype.sayName = function(){
+    // alert(this.name);
+    // };
+    // function SubType(name, age){
+    // SuperType.call(this, name);
+    // this.age = age;
+    // }
+    // inheritPrototype(SubType, SuperType);
+    // SubType.prototype.sayAge = function(){
+    // alert(this.age);
+    // };
+    // var person1=new SubType("xie",20);
+    // person1.sayAge();
+    // person1.sayName();
+    </script>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</body>
+
+</html>

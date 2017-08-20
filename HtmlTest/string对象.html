@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>string对象</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <script type="text/javascript">
+    
+var txt="Hello World!"
+
+document.write("<p>Big: " + txt.big() + "</p>")
+document.write("<p>Small: " + txt.small() + "</p>")
+
+document.write("<p>Bold: " + txt.bold() + "</p>")
+document.write("<p>Italic: " + txt.italics() + "</p>")
+
+document.write("<p>Blink: " + txt.blink() + " (does not work in IE)</p>")
+document.write("<p>Fixed: " + txt.fixed() + "</p>")//以打字机文本显示字符串。
+document.write("<p>Strike: " + txt.strike() + "</p>")//使用删除线来显示字符串。
+
+document.write("<p>Fontcolor: " + txt.fontcolor("Red") + "</p>")
+document.write("<p>Fontsize: " + txt.fontsize(16) + "</p>")
+
+document.write("<p>Lowercase: " + txt.toLowerCase() + "</p>")
+document.write("<p>Uppercase: " + txt.toUpperCase() + "</p>")
+
+document.write("<p>Subscript: " + txt.sub() + "</p>")
+document.write("<p>Superscript: " + txt.sup() + "</p>")
+
+document.write("<p>Link: " + txt.link("http://www.w3school.com.cn") + "</p>")
+document.write("使用 charAt() 从某个字符串取得具体的字符。"+txt.charAt(2))
+</script>
+</body>
+
+</html>

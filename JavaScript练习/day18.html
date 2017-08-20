@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    // alert(document.doctype.name);//html
+
+    var fragment = document.createDocumentFragment();
+    var ul = document.getElementById("myList");
+    var li = null;
+    for (var i = 0; i < 3; i++) {
+        li = document.createElement("li");
+        li.appendChild(document.createTextNode("Item " + (i + 1)));
+        fragment.appendChild(li);
+    }
+    ul.appendChild(fragment);
+    </script>
+</head>
+
+<body>
+    <ul id="myList"></ul>
+</body>
+
+</html>

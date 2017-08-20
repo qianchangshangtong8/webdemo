@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <p>网站编程</p>
+    网站名称
+    <p id="name"> </p>
+    网站地址
+    <p id="url"></p>
+    <script type="text/javascript">
+   var txt = '{ "sites" : [' +
+'{ "name":"菜鸟教程" , "url":"www.runoob.com" },' +
+'{ "name":"google" , "url":"www.google.com" },' +
+'{ "name":"微博" , "url":"www.weibo.com" } ]}';
+    var obj = eval("(" + txt + ")");
+    document.getElementById("name").innerHTML = obj.sites[1].name;
+    document.getElementById("url").innerHTML = obj.sites[1].url;
+    </script>
+</body>
+
+</html>

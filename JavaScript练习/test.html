@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    canvas {
+        background-color: #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="500" id="draw">sorry,your brower isn't support the cancas</canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+        var draw = document.getElementById("draw");
+        if (draw.getContext) {
+            var context = draw.getContext("2d");
+
+            // //实现鼠标画图
+            // draw.onmousedown = function(e) {
+            //     var mx = e.clientX;
+            //     var my = e.clientY;
+            //     context.moveTo(mx, my);
+            //     draw.onmousemove = function(e) {
+            //         var endx = e.clientX;
+            //         var endy = e.clientY;
+            //         context.lineTo(endx, endy);
+            //         context.stroke();
+            //     };
+            //     draw.onmouseup = function() {
+            //         draw.onmousemove = null;
+            //         draw.onmouseup = null;
+            //     };
+            // };
+
+
+
+            // drawCircle(50,50,50);
+
+            // //实现画圆
+            // function drawCircle(x,y,r){
+            // 	context.beginPath();
+            // 	for(i=0;i<360;i++){
+            // 		context.lineTo(x+r*Math.cos(i*Math.PI/180),y+r*Math.sin(i*Math.PI/180));
+            // 		context.stroke();
+            // 	}
+            // }
+
+
+            //二次贝塞尔曲线
+            draw.onmousedown = function(e) {
+                var startx = e.layerX;
+                var starty = e.layerY;
+
+                draw.onmouseup = function(e) {
+                    var endx = e.layerX;
+                    var endy = e.layerY;
+
+                    draw.onmousemove = function(e) {
+                    	context.clearRect(0,0,500,500);
+                        var contx = e.layerX;
+                        var conty = e.layerY;
+                        context.beginPath();
+                        context.moveTo(startx, starty);
+                        context.quadraticCurveTo(contx, conty, endx, endy);
+                        context.stroke();
+
+                    }
+                }
+            }
+
+
+            // //绘制弧线
+            // context.moveTo(100,100);
+            // context.lineTo(130,100);
+            // context.arcTo(180,100,180,140,30);
+            // context.lineTo(180,200);
+            // context.stroke();
+
+
+            // //裁切图像
+            // context.rect(100, 100, 100, 100);
+            // context.stroke();
+            // context.clip();
+            // context.fillRect(0, 0, 150, 150);
+
+        }
+    };
+    </script>
+</body>
+
+</html>
